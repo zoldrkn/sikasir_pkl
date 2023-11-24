@@ -87,7 +87,7 @@
 <div class="modal fade" id="delete_kaskecil{{ $item->id }}">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
-            <form action="saldo_destroy/{{ $item->id }}" method="post">
+            <form action="kaskecil_destroy/{{ $item->id }}" method="post">
                 @csrf
                 @method('delete')
                 <div class="modal-body">
