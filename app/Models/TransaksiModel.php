@@ -13,7 +13,7 @@ class TransaksiModel extends Model
         'jumlah_keluar',
         'jumlah_masuk',
         'tanggal_tansaksi',
-        'keterangan',
+        'keterangan_transaksi',
     ];
     protected $guarded = ['id'];
 }
