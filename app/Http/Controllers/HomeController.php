@@ -47,9 +47,9 @@ class HomeController extends Controller
     public function update(Request $request, $id)
     {
         $kaskecil = TransaksiModel::findOrFail($id);
-        $karyawan = KaryawanModel::create($request->all());
+       
         $kaskecil->update($request->all());
-        $karyawan->update($request->all());
+    
         return redirect('/kaskecil');
     }
 

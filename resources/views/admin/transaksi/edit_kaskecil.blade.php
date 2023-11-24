@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="nama_karyawan" class="col-sm-3">Nama/Divisi</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
@@ -46,7 +46,7 @@
                                     </div>
 
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group row">
                                 <label for="keterangan_transaksi" class="col-sm-3">Keterangan</label>
                                 <div class="col-sm-9">
@@ -60,6 +60,22 @@
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="jumlah_keluar" id="jumlah_keluar" value="{{ $kaskecil->jumlah_keluar }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="jumlah_masuk" class="col-sm-3">Jumlah Kembali</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="jumlah_masuk" id="jumlah_masuk" value="{{ $kaskecil->jumlah_masuk }}" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="" class="col-sm-3">Detail Keterangan</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="" id="" value="" >
                                     </div>
                                 </div>
                             </div>

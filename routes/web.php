@@ -53,16 +53,16 @@ route::get('/setoran_bank', [SetoranController::class, 'tampil_bank']);
 route::get('/penjualan_tambah', [SetoranController::class, 'create_penjualan']);
 route::post('/setoran_penjualan', [SetoranController::class, 'store_penjualan']);
 route::get('/penjualan_edit/{id}', [SetoranController::class, 'edit_penjualan']);
-route::put('/penjualan/{id}', [SetoranController::class, 'update_penjualan']);
+route::put('/penjualan/{id}', [SetoranController::class, 'update_penjualan']); 
 route::delete('/pejualan_destroy/{id}', [SetoranController::class, 'destroy_penjualan']);
 
-//COBA TRANSAKSI
+//COBA TRANSAKSI "DONE"
 route::get('/kaskecil', [HomeController::class, 'tampil_kaskecil']);
 route::get('/kaskecil_tambah', [HomeController::class, 'create_kaskecil']);
 route::post('/kaskecil', [HomeController::class, 'store']);
 route::get('/kaskecil_edit/{id}', [HomeController::class, 'edit_kaskecil']);
-route::put('/kaskecil/{id}', [HomeController::class, 'update_kaskecil']);
-route::delete('/kaskecil_destroy/{id}', [HomeController::class, 'destroy_kaskecil']);
+route::put('/kaskecil/{id}', [HomeController::class, 'update']); 
+route::delete('/kaskecil_destroy/{id}', [HomeController::class, 'destroy']); //menghapus transaksi tidak menghapus data karyawan
 
 
 //KAS KECIL
