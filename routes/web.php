@@ -60,6 +60,9 @@ route::delete('/pejualan_destroy/{id}', [SetoranController::class, 'destroy_penj
 route::get('/kaskecil', [HomeController::class, 'tampil_kaskecil']);
 route::get('/kaskecil_tambah', [HomeController::class, 'create_kaskecil']);
 route::post('/kaskecil', [HomeController::class, 'store']);
+route::get('/penjualan_edit/{id}', [SetoranController::class, 'edit_penjualan']);
+route::put('/penjualan/{id}', [SetoranController::class, 'update_penjualan']);
+route::delete('/pejualan_destroy/{id}', [SetoranController::class, 'destroy_penjualan']);
 
 
 //KAS KECIL

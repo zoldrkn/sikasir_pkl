@@ -37,5 +37,27 @@ class HomeController extends Controller
         return redirect('/kaskecil');
     }
 
+     public function edit_kaskecil(Request $request, $id)
+    {
+
+        $kaskecil = TransaksiModel::findOrFail($id);
+        return view('admin.transaksi.edit_kaskecil', ['kaskecil' => $kaskecil]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $kaskecil = TransaksiModel::findOrFail($id);
+        $kaskecil->update($request->all());
+        return redirect('/kaskecil');
+    }
+
+    public function destroy($id)
+    {
+        //$deleteSaldo = DB::table('saldo')->where('id', $id)->delete();
+        $deletedKaskecil = TransaksiModel::findOrFail($id);
+        $deletedKaskecil->delete();
+
+        return redirect('/kaskecil');
+    }
     
 }
