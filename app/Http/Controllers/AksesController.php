@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\SaldoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,15 +9,18 @@ class AksesController extends Controller
 {
     function index()
     {
-        return view('admin.dashboard');
+        $saldo_baru = SaldoModel::latest()->first();
+        return view('admin.dashboard', ['saldo_baru' => $saldo_baru]);
     }
     
     function admin()
     {
-        return view('admin.dashboard');
+        $saldo_baru = SaldoModel::latest()->first();
+        return view('admin.dashboard', ['saldo_baru' => $saldo_baru]);
     }
     function kasir()
     {
-        return view('admin.dashboard');
+        $saldo_baru = SaldoModel::latest()->first();
+        return view('admin.dashboard', ['saldo_baru' => $saldo_baru]);
     }
 }

@@ -37,6 +37,8 @@
                                 </select>
                             </div>
                         </div>
+                        
+                        <p>Saldo Saat Ini : Rp. {{ $saldo_baru->jumlah_saldo }}</p>
 
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped table-sm table-hover" width="100%">

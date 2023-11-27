@@ -2,14 +2,12 @@
 
 use App\Http\Controllers\SesiController;
 use App\Http\Controllers\AksesController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SetoranController;
 use App\Http\Controllers\KaryawanController;
-use App\Http\Controllers\KasKeluarController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\JurnalController;
-use App\Models\KaryawanModel;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,7 +37,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 //MENU 
-
 //CRUD SETORAN PENJUALAN
 route::get('/setoran_penjualan', [SetoranController::class, 'tampil_penjualan']);
 route::get('/penjualan_tambah', [SetoranController::class, 'create_penjualan']);
@@ -57,22 +54,12 @@ route::put('/penjualan/{id}', [SetoranController::class, 'update_penjualan']);
 route::delete('/pejualan_destroy/{id}', [SetoranController::class, 'destroy_penjualan']);
 
 //COBA TRANSAKSI "DONE"
-route::get('/kaskecil', [HomeController::class, 'tampil_kaskecil']);
-route::get('/kaskecil_tambah', [HomeController::class, 'create_kaskecil']);
-route::post('/kaskecil', [HomeController::class, 'store']);
-route::get('/kaskecil_edit/{id}', [HomeController::class, 'edit_kaskecil']);
-route::put('/kaskecil/{id}', [HomeController::class, 'update']); 
-route::delete('/kaskecil_destroy/{id}', [HomeController::class, 'destroy']); //menghapus transaksi tidak menghapus data karyawan
-
-
-//KAS KECIL
-route::get('/kasmasuk', [HomeController::class, 'kasmasuk']);
-route::get('/kasmasuk_tambah', [HomeController::class, 'create_kaskeluar']);
-route::post('/kasmasuk', [HomeController::class, 'store']);
-
-route::get('/kaskeluar', [KasKeluarController::class, 'tampil_kaskeluar']);
-route::get('/kaskeluar_tambah', [KasKeluarController::class, 'create_kaskeluar']);
-route::post('/kaskeluar', [KasKeluarController::class, 'store']);
+route::get('/kaskecil', [TransaksiController::class, 'tampil_kaskecil']);
+route::get('/kaskecil_tambah', [TransaksiController::class, 'create_kaskecil']);
+route::post('/kaskecil', [TransaksiController::class, 'store']);
+route::get('/kaskecil_edit/{id}', [TransaksiController::class, 'edit_kaskecil']);
+route::put('/kaskecil/{id}', [TransaksiController::class, 'update']); 
+route::delete('/kaskecil_destroy/{id}', [TransaksiController::class, 'destroy']); //menghapus transaksi tidak menghapus data karyawan
 
 //JURNAL CETAK
 route::get('/jurnal', [JurnalController::class, 'tampil_jurnal']);

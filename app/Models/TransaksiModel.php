@@ -16,5 +16,19 @@ class TransaksiModel extends Model
         'tanggal_transaksi',
         'keterangan_transaksi',
     ];
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
+    // public $incrementing = false;
+    // protected $keyType = 'string';
+    // protected $primaryKey = 'kode_kaskecil';
+
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::creating(function ($model) {
+    //         $model->kode_kaskecil = 'KK' . str_pad(static::max('kode_kaskecil') + 1, 4, '0', STR_PAD_LEFT);
+    //     });
+    // }
+    
+    
 }

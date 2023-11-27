@@ -17,8 +17,6 @@ class SaldoController extends Controller
         ]);
     }
 
-  
-    
     function create_saldo()
     {
         return view('admin.saldo.tambah_saldo');
@@ -26,13 +24,8 @@ class SaldoController extends Controller
 
     public function store(Request $request)
     {
-        $saldo = SaldoModel::create($request->all());
-
-        // Update saldo awal secara otomatis
-        $this->updateSaldoAwal($saldo->id, $request->jumlah_saldo);
-        
-        return redirect('/saldo');
-        
+        $saldo = SaldoModel::create($request->all());   
+        return redirect('/saldo');   
     }
 
     // private function updateSaldo($id, $saldo)
