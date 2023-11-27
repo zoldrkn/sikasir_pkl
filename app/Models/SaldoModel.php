@@ -12,7 +12,7 @@ class SaldoModel extends Model
     protected $fillable = [
         'tanggal_saldo',
         'keterangan_saldo',
-        'saldo',
+        'jumlah_saldo',
     ];
     protected $guarded = ['id'];
 }

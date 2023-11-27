@@ -37,10 +37,10 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="saldo" class="col-sm-3">Saldo Masuk (Rp.)</label>
+                                <label for="jumlah_saldo" class="col-sm-3">Saldo Masuk (Rp.)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="saldo" id="saldo" value="{{ $saldo->saldo }}"required>
+                                        <input type="number" class="form-control" name="jumlah_saldo" id="jumlah_saldo" value="{{ $saldo->jumlah_saldo }}"required>
                                     </div>
                                 </div>
                             </div>

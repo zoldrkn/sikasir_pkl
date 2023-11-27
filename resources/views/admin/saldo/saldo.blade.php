@@ -37,7 +37,10 @@
                                 </select>
                             </div>
                         </div>
-
+                        
+                        {{-- INFO SALDO --}}
+                        <p>Saldo Awal Terbaru: {{ $saldo_baru->jumlah_saldo }}</p>
+                        
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped table-sm table-hover" width="100%">
                                 <thead>
@@ -57,7 +60,7 @@
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->tanggal_saldo }}</td>
                                         <td>{{ $item->keterangan_saldo }}</td>
-                                        <td>{{ $item->saldo }}{{ $item->formatCurrency($item->amount) }}</td>
+                                        <td>{{ $item->jumlah_saldo }}</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                                 <a href="saldo_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
