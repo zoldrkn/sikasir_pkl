@@ -57,8 +57,8 @@
                                     @foreach ($kaskecil as $no => $item)
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->tanggal_tansaksi }}</td>
+                                        <td>{{ $item->kode_kaskeluar }}</td>
+                                        <td>{{ $item->tanggal_transaksi }}</td>
                                         <td>{{ $item->keterangan_transaksi }}</td>
                                         <td>{{ $item->jumlah_masuk }}</td>
                                         <td>{{ $item->jumlah_keluar }}</td>

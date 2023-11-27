@@ -19,10 +19,18 @@
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
                             <div class="form-group row">
-                                <label for="tanggal_tansaksi" class="col-sm-3">Tanggal</label>
+                                <label for="kode_kaskeluar" class="col-sm-3">KK</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="date" class="form-control" name="tanggal_tansaksi" id="tanggal_t   ansaksi" required>
+                                        <input type="text" class="form-control" name="kode_kaskeluar" id="kode_kaskeluar" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tanggal_transaksi" class="col-sm-3">Tanggal</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" name="tanggal_transaksi" id="tanggal_transaksi" required>
                                     </div>
                                 </div>
                             </div>

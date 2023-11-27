@@ -21,18 +21,18 @@
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
                             <div class="form-group row">
-                                <label for="id" class="col-sm-3">KK</label>
+                                <label for="kode_kaskeluar" class="col-sm-3">KK</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="id" id="id" value="{{ $kaskecil->id }}" readonly>
+                                        <input type="text" class="form-control" name="kode_kaskeluar" id="kode_kaskeluar" value="{{ $kaskecil->kode_kaskeluar }}" readonly>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="tanggal_tansaksi" class="col-sm-3">Tanggal</label>
+                                <label for="tanggal_transaksi" class="col-sm-3">Tanggal</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="date" class="form-control" name="tanggal_tansaksi" id="tanggal_tansaksi" value="{{ $kaskecil->tanggal_tansaksi }}" readonly>
+                                        <input type="date" class="form-control" name="tanggal_transaksi" id="tanggal_transaksi" value="{{ $kaskecil->tanggal_transaksi }}" readonly>
                                     </div>
                                 </div>
                             </div>

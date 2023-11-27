@@ -145,11 +145,11 @@
                         </li>
                         <li class="nav-item">
                             <a href="{{ url('/kaskecil') }}" class="nav-link">
-                                <i class="nav-icon fas fa-money-bill"></i>
+                                <i class="nav-icon fas fa-sticky-note"></i>
                                 <p>Transaksi Kas Kecil</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a href="{{ url('/kasmasuk') }}" class="nav-link">
                                 <i class="nav-icon fas fa-sticky-note"></i>
                                 <p>Kas Masuk</p>
@@ -160,7 +160,7 @@
                                 <i class="nav-icon fas fa-sticky-note"></i>
                                 <p>Kas Keluar</p>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a href="{{ url('/jurnal') }}" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>

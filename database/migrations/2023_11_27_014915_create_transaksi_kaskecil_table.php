@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('saldo', function (Blueprint $table) {
+        Schema::create('transaksi_kaskecil', function (Blueprint $table) {
             $table->id();
-            $table->string('keterangan_saldo', 255);
-            $table->date('tanggal_saldo');
-            $table->decimal('jumlah_saldo', 15,2);
+            $table->string('kode_kaskeluar')->unique();
+            $table->decimal('jumlah_keluar', 15,2);
+            $table->decimal('jumlah_masuk', 15,2)->nullable();
+            $table->date('tanggal_transaksi');
+            $table->text('keterangan_transaksi')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('saldo');
+        Schema::dropIfExists('transaksi_kaskecil');
     }
 };
