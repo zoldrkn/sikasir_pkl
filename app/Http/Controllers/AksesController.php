@@ -9,11 +9,14 @@ use Illuminate\Support\Facades\Auth;
 class AksesController extends Controller
 {
     function index()
-    {
+    { 
         $totalKeluar = TransaksiModel::getTotalKeluar();
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalSaldo = SaldoModel::getTotalSaldo();
-        return view('admin.dashboard', ['totalSaldo' => $totalSaldo, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        // Menghitung saldo setelah dikurangi jumlah keluar
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk;
+        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
     }
     
     function admin()
@@ -21,13 +24,19 @@ class AksesController extends Controller
         $totalKeluar = TransaksiModel::getTotalKeluar();
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalSaldo = SaldoModel::getTotalSaldo();
-        return view('admin.dashboard', ['totalSaldo' => $totalSaldo, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        // Menghitung saldo setelah dikurangi jumlah keluar
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk;
+        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
     }
     function kasir()
     {
         $totalKeluar = TransaksiModel::getTotalKeluar();
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalSaldo = SaldoModel::getTotalSaldo();
-        return view('admin.dashboard', ['totalSaldo' => $totalSaldo, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        // Menghitung saldo setelah dikurangi jumlah keluar
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk;
+        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
     }
 }
