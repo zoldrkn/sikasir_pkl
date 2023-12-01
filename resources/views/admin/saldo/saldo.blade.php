@@ -41,7 +41,7 @@
                         {{-- INFO SALDO --}}
                         <div>
                             <p>Total Saldo</p>
-                            <h2>Rp. {{ $totalSaldo }}</h2>
+                            <h2>Rp. {{  number_format($totalSaldo, 0, ',', '.')  }},00</h2>
                         </div>
                         
                         <div class="table-responsive">
