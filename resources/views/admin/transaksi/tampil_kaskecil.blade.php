@@ -65,8 +65,8 @@
                                         <td>{{ $item->kode_kaskeluar }}</td>
                                         <td>{{ $item->tanggal_transaksi }}</td>
                                         <td>{{ $item->keterangan_transaksi }}</td>
-                                        <td>Rp. {{ $item->jumlah_masuk }}</td>
-                                        <td>Rp. {{ $item->jumlah_keluar }}</td>
+                                        <td>Rp. {{ number_format($item->jumlah_masuk, 0, ',', '.') }},00</td>
+                                        <td>Rp. {{ number_format($item->jumlah_keluar, 0, ',', '.') }},00</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                             <a data-toggle="modal" href=""

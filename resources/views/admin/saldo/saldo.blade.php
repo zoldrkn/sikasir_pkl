@@ -63,7 +63,7 @@
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->tanggal_saldo }}</td>
                                         <td>{{ $item->keterangan_saldo }}</td>
-                                        <td>Rp. {{ $item->jumlah_saldo }}</td>
+                                        <td>Rp. {{ number_format($item->jumlah_saldo, 0, ',', '.') }},00</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                                 <a href="saldo_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
