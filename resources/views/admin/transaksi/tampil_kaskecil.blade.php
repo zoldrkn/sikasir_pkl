@@ -10,21 +10,28 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        @if(Auth::user()->role == 'kasir')
+                       
                         <div class="row">
                             <div class="col-12">
+                                @if(Auth::user()->role == 'kasir')
                                 <a href="kaskecil_tambah" class="btn btn-primary mb-3">
                                     <i class="far fa-plus"></i> Tambah Transaksi
-                                </a>
+                                </a>@endif
+                                <div id="menuDataTable" class="float-right"></div>
                             </div>
                         </div>
-                        @endif
+                        
 
                         {{-- @if(session::has('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session::get('message') }}
                         </div>
                         @endif --}}
+
+                        <div class="float-right">
+                            <p>Total Saldo</p>
+                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
+                        </div>
 
                         <div class="form-group">
                             <div class="col-2">
@@ -36,11 +43,6 @@
                                     <?php endfor ?>
                                 </select>
                             </div>
-                        </div>
-                        
-                        <div>
-                            <p>Total Saldo</p>
-                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
                         </div>
 
                         <div class="table-responsive">

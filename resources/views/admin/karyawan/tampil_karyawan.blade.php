@@ -10,7 +10,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        @if(Auth::user()->role == 'kasir')
+                        @if(Auth::user()->role == 'admin')
                         <div class="row">
                             <div class="col-12">
                                 <a href="karyawan_tambah" class="btn btn-primary mb-3">

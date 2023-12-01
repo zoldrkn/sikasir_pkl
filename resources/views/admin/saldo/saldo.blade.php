@@ -10,21 +10,24 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        @if(Auth::user()->role == 'kasir')
+                        
                         <div class="row">
                             <div class="col-12">
+                                @if(Auth::user()->role == 'kasir')
                                 <a href="saldo_tambah" class="btn btn-primary mb-3">
                                     <i class="far fa-plus"></i> Tambah Saldo
-                                </a>
+                                </a>@endif
+                                <div id="menuDataTable" class="float-right"></div>
                             </div>
                         </div>
-                        @endif
+                        
+                        
 
-                        {{-- @if(session::has('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session::get('message') }}
+
+                        <div class="float-right">
+                            <p>Total Saldo</p>
+                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
                         </div>
-                        @endif --}}
 
                         <div class="form-group">
                             <div class="col-2">
@@ -37,12 +40,7 @@
                                 </select>
                             </div>
                         </div>
-
-                        {{-- INFO SALDO --}}
-                        <div>
-                            <p>Total Saldo</p>
-                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
-                        </div>
+                        
                         
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped table-sm table-hover" width="100%">

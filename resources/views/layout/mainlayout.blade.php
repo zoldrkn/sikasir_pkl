@@ -265,5 +265,152 @@
 
     <!-- Plugin Jquery validation -->
     <script src="{{ asset('/') }}plugins/jquery-validation/jquery.validate.js"></script>
-  </body>
+    <script>
+        $(document).ready(function() {
+    var table = $('#example1').DataTable({
+        "lengthChange": true,
+        "autoWidth": true,
+        "initComplete": function(settings, json) {
+            $("#example1").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");
+        },
+        "buttons": [{
+            extend: 'colvis',
+            className: 'btn bg-primary btn-outline-light',
+            title: 'Col',
+            text: null,
+            exportOptions: {
+                columns: ':visible'
+            }
+        }, {
+            extend: 'excel',
+            className: 'btn bg-primary btn-outline-light',
+            text: '<i class="fa fa-file-excel"></i>',
+            exportOptions: {
+                columns: ':visible'
+            }
+        }, {
+            extend: 'print',
+            className: 'btn bg-primary btn-outline-light',
+            text: '<i class="fa fa-print"></i>',
+            exportOptions: {
+                columns: ':visible'
+            }
+        }],
+        "columnDefs": [{
+            visible: false
+        }]
+    }).buttons().container().appendTo('#menuDataTable');
+});
+</script>
+
+<!-- Script untuk ACTIVE Menu sidebar dinamis -->
+<script>
+$(function() {
+    var url = window.location;
+    // for single sidebar menu
+    $('ul.nav-sidebar a').filter(function() {
+        return this.href == url;
+    }).addClass('active');
+
+    // for sidebar menu and treeview
+    $('ul.nav-treeview a').filter(function() {
+            return this.href == url;
+        }).parentsUntil(".nav-sidebar > .nav-treeview")
+        .css({
+            'display': 'block'
+        })
+        .addClass('menu-open').prev('a')
+        .addClass('active');
+});
+</script>
+
+<!-- Script untuk SELECT2 -->
+<script>
+$(document).ready(function() {
+    $("#nim").select2({
+        theme: 'bootstrap4'
+    });
+    $("#id_pengguna").select2({
+        theme: 'bootstrap4'
+    });
+});
+
+function edit_nim(id) {
+    $("#nim" + id).select2({
+        theme: 'bootstrap4'
+    });
+}
+
+function edit_id(id) {
+    $("#id_pengguna" + id).select2({
+        theme: 'bootstrap4'
+    });
+}
+</script>
+
+<!-- Script untuk bsCustom File Input -->
+<!-- Style Form input -->
+<script>
+$(function() {
+    bsCustomFileInput.init();
+});
+</script>
+
+<script type="text/javascript">
+// input tanggal menggunakan plugin inputmask dan datetimepicker
+$(document).ready(function() {
+    // Mask tanggal
+    $('.tgl').mask('00-00-0000', {
+        placeholder: "dd-mm-yyyy"
+    });
+
+    //Date picker
+    $('.tgl_picker').datetimepicker({
+        format: 'DD-MM-YYYY',
+        useCurrent: false
+    });
+})
+$(document).ready(function() {
+    // //Datemask dd/mm/yyyy
+    // $('#datemask').inputmask('dd/mm/yyyy', {
+    //     'placeholder': 'dd/mm/yyyy'
+    // })
+    // $('[data-mask]').inputmask()
+})
+// datepicker untuk tahun
+$(document).ready(function() {
+    $('.yearmask').mask('0000');
+    $('.year').datetimepicker({
+        viewMode: 'years',
+        format: 'YYYY',
+        useCurrent: false
+    });
+    $('.yearmask2').mask('0000');
+    $('.year2').datetimepicker({
+        viewMode: 'years',
+        format: 'YYYY',
+        useCurrent: false
+    });
+})
+
+// input menggunakan plugin mask untuk IPK
+$(document).ready(function() {
+    // Format IPK.
+    $('.ipk').mask('0.00');
+})
+// input menggunakan plugin mask untuk uang
+$(document).ready(function() {
+    // Format mata uang.
+    $('.uang').mask('000.000.000', {
+        reverse: true
+    });
+    /* unmask ketika from di submit untuk menyimpan
+    data ke dalam database dengan tipe data integer */
+    $("form").submit(function() {
+        $('.uang').unmask();
+    });
+})
+</script>
+</body>
+
 </html>

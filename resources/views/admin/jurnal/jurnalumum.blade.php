@@ -45,7 +45,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                         <div id="menuDataTable" class="float-right"></div> 
                         <div class="table-responsive">
+                            
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr class="active text-center">
