@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\SaldoModel;
+use App\Models\TransaksiModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,18 +10,24 @@ class AksesController extends Controller
 {
     function index()
     {
-        $saldo_baru = SaldoModel::latest()->first();
-        return view('admin.dashboard', ['saldo_baru' => $saldo_baru]);
+        $totalKeluar = TransaksiModel::getTotalKeluar();
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        $totalSaldo = SaldoModel::getTotalSaldo();
+        return view('admin.dashboard', ['totalSaldo' => $totalSaldo, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
     }
     
     function admin()
     {
-        $saldo_baru = SaldoModel::latest()->first();
-        return view('admin.dashboard', ['saldo_baru' => $saldo_baru]);
+        $totalKeluar = TransaksiModel::getTotalKeluar();
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        $totalSaldo = SaldoModel::getTotalSaldo();
+        return view('admin.dashboard', ['totalSaldo' => $totalSaldo, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
     }
     function kasir()
     {
-        $saldo_baru = SaldoModel::latest()->first();
-        return view('admin.dashboard', ['saldo_baru' => $saldo_baru]);
+        $totalKeluar = TransaksiModel::getTotalKeluar();
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        $totalSaldo = SaldoModel::getTotalSaldo();
+        return view('admin.dashboard', ['totalSaldo' => $totalSaldo, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
     }
 }

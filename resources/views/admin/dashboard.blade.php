@@ -13,7 +13,7 @@
 
               <div class="info-box-content">
                   <span class="info-box-text">Pengeluaran</span>
-                  <span class="info-box-number">Rp. 00000</span>
+                  <span class="info-box-number">Rp. {{ $totalKeluar }}</span>
               </div>
               <!-- /.info-box-content -->
           </div>
@@ -26,7 +26,7 @@
 
               <div class="info-box-content">
                   <span class="info-box-text">Pemasukan</span>
-                  <span class="info-box-number">Rp. 00000</span>
+                  <span class="info-box-number">Rp. {{ $totalMasuk }}</span>
               </div>
               <!-- /.info-box-content -->
           </div>
@@ -38,7 +38,7 @@
 
             <div class="info-box-content">
                 <span class="info-box-text">Saldo</span>
-                <span class="info-box-number">Rp. {{ $saldo_baru->jumlah_saldo }}</span>
+                <span class="info-box-number">Rp. {{ $totalSaldo }}</span>
             </div>
             <!-- /.info-box-content -->
         </div>

@@ -12,8 +12,8 @@ class TransaksiController extends Controller
 
     function tampil_kaskecil()
     {
-        $saldo_baru = SaldoModel::latest()->first();
-        return view('admin.transaksi.tampil_kaskecil', ['saldo_baru' => $saldo_baru])->with([
+        $totalSaldo = SaldoModel::getTotalSaldo();
+        return view('admin.transaksi.tampil_kaskecil', ['totalSaldo' => $totalSaldo])->with([
             'kaskecil' => TransaksiModel::all(),
         ]);
     }
@@ -30,7 +30,7 @@ class TransaksiController extends Controller
         return redirect('/kaskecil');
     }
 
-     public function edit_kaskecil(Request $request, $id)
+    public function edit_kaskecil(Request $request, $id)
     {
 
         $kaskecil = TransaksiModel::findOrFail($id);
@@ -40,9 +40,9 @@ class TransaksiController extends Controller
     public function update(Request $request, $id)
     {
         $kaskecil = TransaksiModel::findOrFail($id);
-       
+
         $kaskecil->update($request->all());
-    
+
         return redirect('/kaskecil');
     }
 
@@ -54,5 +54,4 @@ class TransaksiController extends Controller
 
         return redirect('/kaskecil');
     }
-    
 }

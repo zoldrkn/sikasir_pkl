@@ -38,7 +38,10 @@
                             </div>
                         </div>
                         
-                        <p>Saldo Saat Ini : Rp. {{ $saldo_baru->jumlah_saldo }}</p>
+                        <div>
+                            <p>Total Saldo</p>
+                            <h2>Rp. {{ $totalSaldo }}</h2>
+                        </div>
 
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped table-sm table-hover" width="100%">
@@ -62,8 +65,8 @@
                                         <td>{{ $item->kode_kaskeluar }}</td>
                                         <td>{{ $item->tanggal_transaksi }}</td>
                                         <td>{{ $item->keterangan_transaksi }}</td>
-                                        <td>{{ $item->jumlah_masuk }}</td>
-                                        <td>{{ $item->jumlah_keluar }}</td>
+                                        <td>Rp. {{ $item->jumlah_masuk }}</td>
+                                        <td>Rp. {{ $item->jumlah_keluar }}</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                             <a data-toggle="modal" href=""

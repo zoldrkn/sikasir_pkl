@@ -11,8 +11,8 @@ class SaldoController extends Controller
 {
     function tampil_saldo()
     {
-        $saldo_baru = SaldoModel::latest()->first();
-        return view('admin.saldo.saldo', ['saldo_baru' => $saldo_baru])->with([
+        $totalSaldo = SaldoModel::getTotalSaldo();
+        return view('admin.saldo.saldo', ['totalSaldo' => $totalSaldo])->with([
             'saldo' => SaldoModel::all(),
         ]);
     }
@@ -24,8 +24,18 @@ class SaldoController extends Controller
 
     public function store(Request $request)
     {
-        $saldo = SaldoModel::create($request->all());   
-        return redirect('/saldo');   
+
+        // Proses penambahan saldo
+        $saldoBaru = new SaldoModel([
+            'tanggal_saldo' => $request->input('tanggal_saldo'),
+            'keterangan_saldo' => $request->input('keterangan_saldo'),
+            'jumlah_saldo' => $request->input('jumlah_saldo'),
+        ]);
+
+        $saldoBaru->save();
+
+
+        return redirect('/saldo');
     }
 
     // private function updateSaldo($id, $saldo)
