@@ -78,12 +78,12 @@
                                 <thead>
                                     <tr class="active text-center">
                                         <th>No</th>
-                                        <th>Tanggal</th>
-                                        <th>Nama Karyawan</th>
-                                        <th>Divisi</th>
-                                        <th>Keterangan</th>
+                                        <th>Tanggal Penjualan</th>
+                                        <th>Setoran Penjualan</th>
+                                        <th>Keterangan Penjualan</th>
                                         <th>C/K</th>
-                                        <th>Debit</th>
+                                        <!-- <th>Debit</th>
+                                        <th>Kredit</th> -->
                                         @if(Auth::user()->role == 'kasir')
                                         <th width="14%">Tombol Aksi</th>
                                         @endif
@@ -94,8 +94,8 @@
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->tanggal_penjualan }}</td>
-                                        <td>{{ $item->keterangan_penjualan }}</td>
                                         <td>{{ $item->debit_penjualan }}</td>
+                                        <td>{{ $item->keterangan_penjualan }}</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                                 <a href="penjualan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>

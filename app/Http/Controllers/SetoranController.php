@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SetoranModel;
+use App\Models\PenjualanModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -11,12 +11,14 @@ class SetoranController extends Controller
 {
     function tampil_penjualan()
     {
-        return view('admin.setoran.tampil_penjualan');
+        return view('admin.penjualan.tampil_penjualan')->with([
+            'penjualan' => PenjualanModel::all(),
+        ]);
     }
     
     function tampil_bank()
     {
-        return view('admin.setoran.tampil_bank');
+        return view('admin.bank.tampil_bank');
     }
 
     function create_setoran()
