@@ -28,20 +28,20 @@ class SetoranController extends Controller
 
     public function store(Request $request)
     {
-        $saldo = SetoranModel::create($request->all());
+        $saldo = PenjualanModel::create($request->all());
         return redirect('/saldo');
     }
 
     public function edit_saldo(Request $request, $id)
     {
 
-        $saldo = SetoranModel::findOrFail($id);
+        $saldo = PenjualanModel::findOrFail($id);
         return view('admin.saldo.edit_saldo', ['saldo' => $saldo]);
     }
 
     public function update(Request $request, $id)
     {
-        $saldo = SetoranModel::findOrFail($id);
+        $saldo = PenjualanModel::findOrFail($id);
         $saldo->update($request->all());
         return redirect('/saldo');
     }
@@ -49,7 +49,7 @@ class SetoranController extends Controller
     public function destroy($id)
     {
         //$deleteSaldo = DB::table('saldo')->where('id', $id)->delete();
-        $deletedSetoran = SetoranModel::findOrFail($id);
+        $deletedSetoran = PenjualanModel::findOrFail($id);
         $deletedSetoran->delete();
         
         return redirect('/saldo');

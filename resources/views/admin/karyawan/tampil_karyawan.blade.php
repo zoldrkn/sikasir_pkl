@@ -49,7 +49,7 @@
                                         <td>{{ $item->nama_karyawan }}</td>
                                         <td class="text-center">{{ $item->divisi }}</td>                                
                                         <td class="text-center">                                        
-                                                @if(Auth::user()->role == 'kasir')
+                                                @if(Auth::user()->role == 'admin')
                                                 <a href="karyawan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
                                             <a data-toggle="modal" href="#delete_karyawan{{ $item->id }}"
                                                 class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
