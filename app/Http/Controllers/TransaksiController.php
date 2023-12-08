@@ -12,12 +12,15 @@ class TransaksiController extends Controller
 
     function tampil_kaskecil()
     {
+       
         $totalSaldo = SaldoModel::getTotalSaldo();
         $totalKeluar = TransaksiModel::getTotalKeluar();
         $totalMasuk = TransaksiModel::getTotalMasuk();
         // Menghitung saldo setelah dikurangi jumlah keluar
         $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk;
-        return view('admin.transaksi.tampil_kaskecil', ['saldoAkhir' => $saldoAkhir])->with([
+
+        $filterBulan = TransaksiModel::filterBulan();
+        return view('admin.transaksi.tampil_kaskecil', compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([
             'kaskecil' => TransaksiModel::all(),
         ]);
     }

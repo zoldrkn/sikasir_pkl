@@ -27,5 +27,9 @@ class TransaksiModel extends Model
         return self::sum('jumlah_masuk');
     }
     
+    public static function filterBulan()
+    {
+        return self::where('Month(tanggal_transaksi)');
+    }
     
 }
