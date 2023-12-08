@@ -34,29 +34,6 @@
                         </div>
 
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        {{-- <script>
-                        $(document).ready(function($) {
-                            $('table').show();
-
-                            $('#mySelector').change(function() {
-                                var selection = $(this).val();
-                                var dataset = $('#example1 tbody').find('tr');
-
-                                dataset.show();
-
-                                if (selection !== "") {
-                                    dataset.filter(function(index, item) {
-
-                                        var timestamp = $(item).find('td:nth-child(3)').text();
-                                        var month = timestamp.split(' ')[0];
-                                        month = month.split('-')[0];
-
-                                        return month !== selection;
-                                    }).hide();
-                                }
-                            });
-                        });
-                        </script> --}}
                         <script>
                             $(document).ready(function($) {
                                 $('table').show();
@@ -91,18 +68,6 @@
                                 </select>
                             </div>
                         </div>
-                        {{-- <div class="form-group">
-                            <div class="col-2">
-                                <label for="mySelector">Periode/Bln</label>
-                                <select class="form-control" id="mySelector">
-                                    <option selected value="">Semua Bulan</option>
-                                    @foreach($filterBulan as $data)
-                                    <option value="{{ $data->tanggal_transaksi }}
-                                        ">{{ $data->tanggal_transaksi }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div> --}}
 
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped table-sm table-hover" width="100%">
