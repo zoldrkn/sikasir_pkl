@@ -31,7 +31,7 @@ class UserController extends Controller
             'password' => bcrypt($request->input('password')),
         ]);
 
-        return redirect('/user');
+        return redirect('/user')->with('success', 'Berhasil Menambahkan Data');
         // $user = UserModel::create($request->all());
         // return redirect('/user');
     }
@@ -49,7 +49,7 @@ class UserController extends Controller
         $user->update($request->all());
         $user->update([
             'password' => bcrypt($request->new_password),   ]);
-        return redirect('/user');
+        return redirect('/user')->with('warning', 'Data Berhasil Diubah');
     }
     
     public function destroy($id)
@@ -57,7 +57,7 @@ class UserController extends Controller
         $deletedUser = UserModel::findOrFail($id);
         $deletedUser->delete();
         
-        return redirect('/user');
+        return redirect('/user')->with('danger', 'Data Berhasil Dihapus');
     }
 
 }

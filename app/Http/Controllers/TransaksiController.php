@@ -27,6 +27,7 @@ class TransaksiController extends Controller
 
     function create_kaskecil()
     {
+        
         return view('admin.transaksi.tambah_kaskecil');
     }
 
@@ -34,7 +35,9 @@ class TransaksiController extends Controller
     {
         $kaskecil = TransaksiModel::create($request->all());
         $karyawan = KaryawanModel::create($request->all());
-        return redirect('/kaskecil');
+       
+        // return redirect('/kaskecil');
+        return redirect('/kaskecil')->with('success', 'Berhasil Menambahkan Data');
     }
 
     public function edit_kaskecil(Request $request, $id)
@@ -50,7 +53,7 @@ class TransaksiController extends Controller
 
         $kaskecil->update($request->all());
 
-        return redirect('/kaskecil');
+        return redirect('/kaskecil')->with('warning', 'Data Berhasil Diubah');
     }
 
     public function destroy($id)
@@ -59,6 +62,6 @@ class TransaksiController extends Controller
         $deletedKaskecil = TransaksiModel::findOrFail($id);
         $deletedKaskecil->delete();
 
-        return redirect('/kaskecil');
+        return redirect('/kaskecil')->with('danger', 'Data Berhasil Dihapus');
     }
 }

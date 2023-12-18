@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{ asset('/') }}dist/css/adminlte.min.css">
     {{-- <style>
     body {
-        background: url("assets/image/logo/PatternTI.svg") repeat;
+        background: url("{{ asset('/') }}image/logo/LOGO PT. PEK apk.png") repeat;
         background-size: 250px;
     }
     </style> --}}

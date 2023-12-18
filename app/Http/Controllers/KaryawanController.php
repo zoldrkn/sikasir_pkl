@@ -24,7 +24,7 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $karyawan = KaryawanModel::create($request->all());
-        return redirect('/karyawan');
+        return redirect('/karyawan')->with('seccess', 'Berhasil Menambahkan Data');
     }
 
     public function edit_karyawan(Request $request, $id)
@@ -38,7 +38,7 @@ class KaryawanController extends Controller
     {
         $karyawan = KaryawanModel::findOrFail($id);
         $karyawan->update($request->all());
-        return redirect('/karyawan');
+        return redirect('/karyawan')->with('warning', 'Data Berhasil Diubah');
     }
 
     public function destroy($id)
@@ -47,6 +47,6 @@ class KaryawanController extends Controller
         $deletedKaryawan = KaryawanModel::findOrFail($id);
         $deletedKaryawan->delete();
         
-        return redirect('/karyawan');
+        return redirect('/karyawan')->with('danger', 'Data Berhasil Dihapus');;
     }
 }

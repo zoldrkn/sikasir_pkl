@@ -40,20 +40,8 @@ class SaldoController extends Controller
         $saldoBaru->save();
 
 
-        return redirect('/saldo');
+        return redirect('/saldo')->with('success', 'Berhasil Menambahkan Data');
     }
-
-    // private function updateSaldo($id, $saldo)
-    // {
-    //     // Ambil saldo sebelumnya
-    //     $saldoSebelumnya = SaldoModel::where('id', '<', $id)->orderBy('id', 'desc')->first();
-
-    //     // Hitung saldo awal baru
-    //     $saldoAwalBaru = $saldoSebelumnya ? $saldoSebelumnya->saldo_awal + $saldo : $saldo;
-
-    //     // Update saldo awal
-    //     SaldoModel::where('id', $id)->update(['saldo_awal' => $saldoAwalBaru]);
-    // }
 
     public function edit_saldo(Request $request, $id)
     {
@@ -66,7 +54,7 @@ class SaldoController extends Controller
     {
         $saldo = SaldoModel::findOrFail($id);
         $saldo->update($request->all());
-        return redirect('/saldo');
+        return redirect('/saldo')->with('warning', 'Data Berhasil Diubah');
     }
 
     public function destroy($id)
@@ -75,6 +63,6 @@ class SaldoController extends Controller
         $deletedSaldo = SaldoModel::findOrFail($id);
         $deletedSaldo->delete();
 
-        return redirect('/saldo');
+        return redirect('/saldo')->with('danger', 'Data Berhasil Dihapus');
     }
 }

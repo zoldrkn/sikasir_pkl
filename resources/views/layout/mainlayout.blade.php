@@ -219,7 +219,7 @@
     <footer class="main-footer text-sm bg-dark">
         &copy; 2024 PKL TI POLITALA
         <div class="float-right d-none d-sm-inline">
-            SIKACIL v0.0.1(alpha)
+            SIKASIL v1.0.0(alpha)
         </div>
     </footer>
     </div>
