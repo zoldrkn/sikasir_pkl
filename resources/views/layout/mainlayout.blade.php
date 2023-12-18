@@ -52,24 +52,20 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <!--Nama Pengguna dan Modal-->
+                @if(Auth::user()->role == 'admin')
                 <li class="nav-item dropdown user-menu">
                     <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown">
-                        <span class="d-none d-md-inline font-weight-bold mr-2"></i>User</span>
+                        <span class="d-none d-md-inline font-weight-bold mr-2"></i>Admin</span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <a href="" class="btn btn-default">
-                                <i class="fas fa-user-gear"></i>
-                                My Profile
-                            </a>
-                            <a href="/logout" class="btn btn-danger float-right">
-                                <i class="fas fa-sign-out-alt"></i>
-                                Logout
-                            </a>
-                        </li>
-                    </ul>
-                </li>               
+                </li>
+                @endif     
+                @if(Auth::user()->role == 'kasir')          
+                <li class="nav-item dropdown user-menu">
+                    <a href="#" class="nav-link dropdown-toggle text-white" data-toggle="dropdown">
+                        <span class="d-none d-md-inline font-weight-bold mr-2"></i>Kasir</span>
+                    </a>
+                </li>  
+                @endif             
             </ul>
         </nav>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -105,12 +101,6 @@
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ url('/coba') }}" class="nav-link">
-                                <i class="nav-icon fas fa-grip"></i>
-                                <p>Coba CRUD</p>
-                            </a>
-                        </li> --}}
                         <li class="nav-header">Setoran</li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -219,7 +209,7 @@
     <footer class="main-footer text-sm bg-dark">
         &copy; 2024 PKL TI POLITALA
         <div class="float-right d-none d-sm-inline">
-            SIKASIL v1.0.0(alpha)
+            SIKASIR v1.0.0(alpha)
         </div>
     </footer>
     </div>
