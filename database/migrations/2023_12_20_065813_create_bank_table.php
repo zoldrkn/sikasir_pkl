@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('penjualan', function (Blueprint $table) {
+        Schema::create('bank', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal_penjualan');
+            $table->date('tanggal_setoran');
             $table->text('keterangan');
-            $table->enum('pembayaran', ['cash', 'kredit']);
-            $table->decimal('setoran_penjualan', 15,2);
+            $table->decimal('setoran_bank', 15,2);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('penjualan');
+        Schema::dropIfExists('bank');
     }
 };

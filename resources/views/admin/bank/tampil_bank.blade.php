@@ -48,7 +48,7 @@
                         @if(Auth::user()->role == 'kasir')
                         <div class="row">
                             <div class="col-12">
-                                <a href="penjualan_tambah" class="btn btn-primary mb-3">
+                                <a href="bank_tambah" class="btn btn-primary mb-3">
                                     <i class="far fa-plus"></i> Tambah Setoran Bank Depo
                                 </a>
                             </div>
@@ -80,11 +80,10 @@
                                     <tr class="active text-center">
                                         <th>No</th>
                                         <th>Tanggal</th>
+                                        <th>Setoran Bank</th>
                                         <th>Nama Karyawan</th>
                                         <th>Divisi</th>
                                         <th>C/K</th>
-                                        <th>Debit</th>
-                                        <th>Saldo</th>
                                         @if(Auth::user()->role == 'kasir')
                                         <th width="14%">Tombol Aksi</th>
                                         @endif

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PenjualanModel;
+use App\Models\BankModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -21,9 +22,13 @@ class SetoranController extends Controller
         return view('admin.bank.tampil_bank');
     }
 
-    function create_setoran()
+    function create_penjualan()
     {
-        return view('admin.saldo.tambah_saldo');
+        return view('admin.penjualan.tambah_penjualan');
+    }
+    function create_bank()
+    {
+        return view('admin.bank.tambah_bank');
     }
 
     public function store(Request $request)
