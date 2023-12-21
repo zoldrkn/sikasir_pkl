@@ -34,7 +34,7 @@ class SesiController extends Controller
             return redirect('admin/kasir');
         }
        }else{
-        return redirect('')->withErrors('Username dan password yang dimasukkan tidak sesuai')->withInput();
+        return redirect('')->withErrors('Email dan password yang dimasukkan tidak sesuai')->withInput();
        }
     }
 

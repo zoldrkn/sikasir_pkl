@@ -139,24 +139,7 @@
                                 <p>Transaksi Kas Kecil</p>
                             </a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a href="{{ url('/kasmasuk') }}" class="nav-link">
-                                <i class="nav-icon fas fa-sticky-note"></i>
-                                <p>Kas Masuk</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ url('/kaskeluar') }}" class="nav-link">
-                                <i class="nav-icon fas fa-sticky-note"></i>
-                                <p>Kas Keluar</p>
-                            </a>
-                        </li> --}}
-                        <li class="nav-item">
-                            <a href="{{ url('/jurnal') }}" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>Jurnal Umum</p>
-                            </a>
-                        </li>
+                       
                       
                         
                         <li class="nav-header">Sistem</li>
