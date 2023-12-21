@@ -12,7 +12,7 @@
                     <div class="card-body">
                 <h4>Tambah Penjualan</h4>
             </div>
-            <form class="form-horizontal" id="tambahpenjualan" action="penjualan" method="post">
+            <form class="form-horizontal" id="tambahpenjualan" action="setoran_penjualan" method="post">
                 @csrf
                 <div class="modal-body">
                     <!-- PENGGUNA -->

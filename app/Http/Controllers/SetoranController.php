@@ -31,10 +31,10 @@ class SetoranController extends Controller
         return view('admin.bank.tambah_bank');
     }
 
-    public function store(Request $request)
+    public function store_penjualan(Request $request)
     {
-        $saldo = PenjualanModel::create($request->all());
-        return redirect('/saldo');
+        $penjualan = PenjualanModel::create($request->all());
+        return redirect('/setoran_penjualan');
     }
 
     public function edit_saldo(Request $request, $id)

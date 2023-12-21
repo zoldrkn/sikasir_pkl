@@ -42,7 +42,7 @@ route::get('/setoran_penjualan', [SetoranController::class, 'tampil_penjualan'])
 route::get('/penjualan_tambah', [SetoranController::class, 'create_penjualan']);
 route::post('/setoran_penjualan', [SetoranController::class, 'store_penjualan']);
 route::get('/penjualan_edit/{id}', [SetoranController::class, 'edit_penjualan']);
-route::put('/penjualan/{id}', [SetoranController::class, 'update_penjualan']);
+route::put('/setoran_penjualan/{id}', [SetoranController::class, 'update_penjualan']);
 route::delete('/pejualan_destroy/{id}', [SetoranController::class, 'destroy_penjualan']);
 
 //CRUD SETORAN BANK
@@ -60,11 +60,6 @@ route::post('/kaskecil', [TransaksiController::class, 'store']);
 route::get('/kaskecil_edit/{id}', [TransaksiController::class, 'edit_kaskecil']);
 route::put('/kaskecil/{id}', [TransaksiController::class, 'update']); 
 route::delete('/kaskecil_destroy/{id}', [TransaksiController::class, 'destroy']); //menghapus transaksi tidak menghapus data karyawan
-
-//JURNAL CETAK
-route::get('/jurnal', [JurnalController::class, 'tampil_jurnal']);
-route::get('/jurnal_tambah', [JurnalController::class, 'create_jurnal']);
-route::post('/jurnal', [JurnalController::class, 'store']);
 
 //CRUD SALDO "DONE"
 route::get('/saldo', [SaldoController::class, 'tampil_saldo']);
