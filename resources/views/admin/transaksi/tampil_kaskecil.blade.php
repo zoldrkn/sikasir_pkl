@@ -92,7 +92,8 @@
                                     <tr class="active text-center">
                                         <th>No</th>
                                         <th>KK</th>
-                                        <th>Tanggal</th>
+                                        <th>Tanggal Keluar</th>
+                                        <th>Tanggal Masuk</th>
                                         <th>Keterangan</th>
                                         <th>Debit</th>
                                         <th>Kredit</th>
@@ -107,6 +108,7 @@
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->kode_kaskeluar }}</td>
                                         <td>{{ $item->tanggal_transaksi }}</td>
+                                        <td>{{ $item->tanggal_masuk }}</td>
                                         <td>{{ $item->keterangan_transaksi }}</td>
                                         <td>Rp. {{ number_format($item->jumlah_masuk, 0, ',', '.') }},00</td>
                                         <td>Rp. {{ number_format($item->jumlah_keluar, 0, ',', '.') }},00</td>

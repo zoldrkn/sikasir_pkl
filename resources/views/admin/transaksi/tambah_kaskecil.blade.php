@@ -68,6 +68,14 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="tanggal_masuk" class="col-sm-3">Tanggal Kembali</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" name="tanggal_masuk" id="tanggal_masuk" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="jumlah_masuk" class="col-sm-3">Jumlah Kembalian</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
