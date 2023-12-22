@@ -14,5 +14,16 @@ class BankModel extends Model
     'keterangan',
     'setoran_bank',
     ];
+
+    public static function getTotalSetoran()
+    {
+        return self::sum('setoran_bank');
+    }
+    
+    public static function filterBulan()
+    {
+        return self::where('Month(tanggal_setoran)');
+    }
+
     protected $guarded = ['id'];
 }

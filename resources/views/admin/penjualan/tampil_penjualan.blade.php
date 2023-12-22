@@ -55,6 +55,11 @@
                         </div>
                         @endif
 
+                        <div class="float-right">
+                            <p>Total Saldo</p>
+                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
+                        </div>
+
                         {{-- @if(session::has('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session::get('message') }}
@@ -79,11 +84,9 @@
                                     <tr class="active text-center">
                                         <th>No</th>
                                         <th>Tanggal Penjualan</th>
-                                        <th>Setoran Penjualan</th>
                                         <th>Keterangan Penjualan</th>
                                         <th>C/K</th>
-                                        <!-- <th>Debit</th>
-                                        <th>Kredit</th> -->
+                                        <th>Setoran Penjualan</th>
                                         @if(Auth::user()->role == 'kasir')
                                         <th width="14%">Tombol Aksi</th>
                                         @endif
@@ -94,9 +97,9 @@
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->tanggal_penjualan }}</td>
-                                        <td>{{ $item->setoran_penjualan }}</td>
                                         <td>{{ $item->keterangan }}</td>
                                         <td>{{ $item->pembayaran }}</td>
+                                        <td>{{ $item->setoran_penjualan }}</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                                 <a href="penjualan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>

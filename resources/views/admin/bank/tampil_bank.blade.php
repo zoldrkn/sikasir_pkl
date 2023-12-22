@@ -55,6 +55,11 @@
                         </div>
                         @endif
 
+                        <div class="float-right">
+                            <p>Total Saldo</p>
+                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-2">
@@ -88,7 +93,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($bank as $no => $item)
+                                    @foreach ($bank as $no => $item)
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->tanggal_setoran }}</td>
@@ -102,7 +107,7 @@
                                                 @endif
                                         </td>
                                     </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

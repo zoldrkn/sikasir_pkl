@@ -12,11 +12,18 @@ class SaldoController extends Controller
 {
     function tampil_saldo()
     {
+        // $totalSaldo = SaldoModel::getTotalSaldo();
+        // $totalKeluar = TransaksiModel::getTotalKeluar();
+        // $totalMasuk = TransaksiModel::getTotalMasuk();
+        // // Menghitung saldo setelah dikurangi jumlah keluar
+        // $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk;
         $totalSaldo = SaldoModel::getTotalSaldo();
         $totalKeluar = TransaksiModel::getTotalKeluar();
         $totalMasuk = TransaksiModel::getTotalMasuk();
+        $totalPenjualan = PenjualanModel::getTotalPenjualan();
+        $totalSetoran = BankModel::getTotalSetoran();
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk;
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + ($totalMasuk) + ($totalPenjualan) - ($totalSetoran);
         return view('admin.saldo.saldo', ['saldoAkhir' => $saldoAkhir])->with([
             'saldo' => SaldoModel::all(),
         ]);

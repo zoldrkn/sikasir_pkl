@@ -15,5 +15,16 @@ class PenjualanModel extends Model
     'pembayaran',
     'setoran_penjualan',
     ];
+
+    public static function getTotalPenjualan()
+    {
+        return self::sum('setoran_penjualan');
+    }
+    
+    public static function filterBulan()
+    {
+        return self::where('Month(tanggal_penjualan)');
+    }
+
     protected $guarded = ['id'];
 }

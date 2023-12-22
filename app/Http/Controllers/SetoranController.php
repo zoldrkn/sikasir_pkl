@@ -4,15 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\PenjualanModel;
 use App\Models\BankModel;
+use App\Models\TransaksiModel;
+use App\Models\SaldoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class SetoranController extends Controller
 {
+    //>>> Penjualan function
     function tampil_penjualan()
     {
-        return view('admin.penjualan.tampil_penjualan');
+        $totalSaldo = SaldoModel::getTotalSaldo();
+        $totalKeluar = TransaksiModel::getTotalKeluar();
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        $totalPenjualan = PenjualanModel::getTotalPenjualan();
+        $totalSetoran = BankModel::getTotalSetoran();
+        // Menghitung saldo setelah dikurangi jumlah keluar
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + ($totalMasuk) + ($totalPenjualan) - ($totalSetoran);
+
+        $filterBulan = PenjualanModel::filterBulan();
+        return view('admin.penjualan.tampil_penjualan', compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([
+            'penjualan' => PenjualanModel::all(),
+        ]);
     }
     
     function create_penjualan()
@@ -28,7 +42,6 @@ class SetoranController extends Controller
     
     public function edit_penjualan(Request $request, $id)
     {
-        
         $penjualan = PenjualanModel::findOrFail($id);
         return view('admin.penjualan.edit_penjualan', ['penjualan' => $penjualan]);
     }
@@ -48,10 +61,24 @@ class SetoranController extends Controller
         
         return redirect('/setoran_penjualan');
     }
+    //>>> END of Penjualan function
     
+
+    //>>> Bank function
     function tampil_bank()
     {
-        return view('admin.bank.tampil_bank');
+        $totalSaldo = SaldoModel::getTotalSaldo();
+        $totalKeluar = TransaksiModel::getTotalKeluar();
+        $totalMasuk = TransaksiModel::getTotalMasuk();
+        $totalPenjualan = PenjualanModel::getTotalPenjualan();
+        $totalSetoran = BankModel::getTotalSetoran();
+        // Menghitung saldo setelah dikurangi jumlah keluar
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + ($totalMasuk) + ($totalPenjualan) - ($totalSetoran);
+
+        $filterBulan = BankModel::filterBulan();
+        return view('admin.bank.tampil_bank', compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([
+            'bank' => BankModel::all(),
+        ]);
     }
     
     function create_bank()
