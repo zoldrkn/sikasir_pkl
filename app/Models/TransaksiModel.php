@@ -14,6 +14,7 @@ class TransaksiModel extends Model
         'jumlah_keluar',
         'jumlah_masuk',
         'tanggal_transaksi',
+        'tanggal_masuk',
         'keterangan_transaksi',
     ];
     

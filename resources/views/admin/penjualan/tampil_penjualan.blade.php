@@ -90,12 +90,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($penjualan as $no => $item)
+                                    @foreach ($penjualan as $no => $item)
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->tanggal_penjualan }}</td>
-                                        <td>{{ $item->debit_penjualan }}</td>
-                                        <td>{{ $item->keterangan_penjualan }}</td>
+                                        <td>{{ $item->setoran_penjualan }}</td>
+                                        <td>{{ $item->keterangan }}</td>
+                                        <td>{{ $item->pembayaran }}</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                                 <a href="penjualan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
@@ -104,7 +105,7 @@
                                                 @endif
                                         </td>
                                     </tr>
-                                    @endforeach --}}
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

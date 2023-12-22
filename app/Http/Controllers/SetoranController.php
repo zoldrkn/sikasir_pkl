@@ -58,7 +58,7 @@ class SetoranController extends Controller
     {
         return view('admin.bank.tambah_bank');   
     }
-    
+
     public function store_bank(Request $request)
     {
         $bank = BankModel::create($request->all());
