@@ -80,26 +80,24 @@
                                     <tr class="active text-center">
                                         <th>No</th>
                                         <th>Tanggal</th>
+                                        <th>keterangan</th>
                                         <th>Setoran Bank</th>
-                                        <th>Nama Karyawan</th>
-                                        <th>Divisi</th>
-                                        <th>C/K</th>
                                         @if(Auth::user()->role == 'kasir')
                                         <th width="14%">Tombol Aksi</th>
                                         @endif
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @foreach ($penjualan as $no => $item)
+                                    {{-- @foreach ($bank as $no => $item)
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
-                                        <td>{{ $item->tanggal_penjualan }}</td>
-                                        <td>{{ $item->keterangan_penjualan }}</td>
-                                        <td>{{ $item->debit_penjualan }}</td>
+                                        <td>{{ $item->tanggal_setoran }}</td>
+                                        <td>{{ $item->keterangan }}</td>
+                                        <td>{{ $item->setoran_bank }}</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
-                                                <a href="penjualan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
-                                            <a data-toggle="modal" href="#delete_penjualan{{ $item->id }}"
+                                                <a href="bank_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                            <a data-toggle="modal" href="#delete_bank{{ $item->id }}"
                                                 class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                                 @endif
                                         </td>
@@ -115,11 +113,11 @@
 </section>
 @endsection
 
-{{-- @foreach ($penjualan as $no => $item)
-<div class="modal fade" id="delete_penjualan{{ $item->id }}">
+{{-- @foreach ($bank as $no => $item)
+<div class="modal fade" id="delete_bank{{ $item->id }}">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
-            <form action="saldo_destroy/{{ $item->id }}" method="post">
+            <form action="bank_destroy/{{ $item->id }}" method="post">
                 @csrf
                 @method('delete')
                 <div class="modal-body">

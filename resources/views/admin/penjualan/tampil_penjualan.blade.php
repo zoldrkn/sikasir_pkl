@@ -82,6 +82,8 @@
                                         <th>Setoran Penjualan</th>
                                         <th>Keterangan Penjualan</th>
                                         <th>C/K</th>
+                                        <!-- <th>Debit</th>
+                                        <th>Kredit</th> -->
                                         @if(Auth::user()->role == 'kasir')
                                         <th width="14%">Tombol Aksi</th>
                                         @endif

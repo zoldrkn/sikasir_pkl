@@ -12,7 +12,7 @@
                     <div class="card-body">
                 <h4>Tambah Setoran Bank</h4>
             </div>
-            <form class="form-horizontal" id="tambahbank" action="bank" method="post">
+            <form class="form-horizontal" id="tambahbank" action="setoran_bank" method="post">
                 @csrf
                 <div class="modal-body">
                     <!-- PENGGUNA -->
