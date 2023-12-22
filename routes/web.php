@@ -43,7 +43,7 @@ route::get('/penjualan_tambah', [SetoranController::class, 'create_penjualan']);
 route::post('/setoran_penjualan', [SetoranController::class, 'store_penjualan']);
 route::get('/penjualan_edit/{id}', [SetoranController::class, 'edit_penjualan']);
 route::put('/setoran_penjualan/{id}', [SetoranController::class, 'update_penjualan']);
-route::delete('/pejualan_destroy/{id}', [SetoranController::class, 'destroy_penjualan']);
+route::delete('/penjualan_destroy/{id}', [SetoranController::class, 'destroy_penjualan']);
 
 //CRUD SETORAN BANK
 route::get('/setoran_bank', [SetoranController::class, 'tampil_bank']);
@@ -51,7 +51,7 @@ route::get('/bank_tambah', [SetoranController::class, 'create_bank']);
 route::post('/setoran_bank', [SetoranController::class, 'store_bank']);
 route::get('/bank_edit/{id}', [SetoranController::class, 'edit_bank']);
 route::put('/bank/{id}', [SetoranController::class, 'update_bank']); 
-route::delete('/pejualan_destroy/{id}', [SetoranController::class, 'destroy_bank']);
+route::delete('/bank_destroy/{id}', [SetoranController::class, 'destroy_bank']);
 
 //COBA TRANSAKSI "DONE"
 route::get('/kaskecil', [TransaksiController::class, 'tampil_kaskecil']);

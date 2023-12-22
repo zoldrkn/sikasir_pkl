@@ -118,7 +118,7 @@
 </section>
 @endsection
 
-{{-- @foreach ($bank as $no => $item)
+@foreach ($bank as $no => $item)
 <div class="modal fade" id="delete_bank{{ $item->id }}">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
@@ -136,4 +136,4 @@
         </div>
     </div>
 </div>
-@endforeach --}}
+@endforeach

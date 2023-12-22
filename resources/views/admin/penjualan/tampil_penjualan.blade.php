@@ -119,11 +119,11 @@
 </section>
 @endsection
 
-{{-- @foreach ($penjualan as $no => $item)
+@foreach ($penjualan as $no => $item)
 <div class="modal fade" id="delete_penjualan{{ $item->id }}">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
-            <form action="saldo_destroy/{{ $item->id }}" method="post">
+            <form action="penjualan_destroy/{{ $item->id }}" method="post">
                 @csrf
                 @method('delete')
                 <div class="modal-body">
@@ -137,4 +137,4 @@
         </div>
     </div>
 </div>
-@endforeach --}}
+@endforeach

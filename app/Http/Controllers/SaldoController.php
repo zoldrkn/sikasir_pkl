@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\SaldoModel;
 use App\Models\TransaksiModel;
+use App\Models\PenjualanModel;
+use App\Models\BankModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;

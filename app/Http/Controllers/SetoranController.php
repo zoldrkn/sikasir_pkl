@@ -58,8 +58,7 @@ class SetoranController extends Controller
         //$deleteSaldo = DB::table('saldo')->where('id', $id)->delete();
         $deletedPenjualan = PenjualanModel::findOrFail($id);
         $deletedPenjualan->delete();
-        
-        return redirect('/setoran_penjualan');
+        return redirect('/setoran_penjualan')->with('danger', 'Data Berhasil Dihapus');
     }
     //>>> END of Penjualan function
     
@@ -94,7 +93,6 @@ class SetoranController extends Controller
     
     public function edit_bank(Request $request, $id)
     {
-        
         $bank = BankModel::findOrFail($id);
         return view('admin.bank.edit_bank', ['bank' => $bank]);
     }

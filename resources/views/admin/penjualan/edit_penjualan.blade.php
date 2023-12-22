@@ -1,6 +1,6 @@
 @extends('layout.mainlayout')
 
-@section('title', 'Edit Setoran Bank')
+@section('title', 'Edit Setoran Penjualan')
     
 @section('content')
 
@@ -11,9 +11,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                <h4>Edit Setoran Bank</h4>
+                <h4>Edit Setoran Penjualan</h4>
             </div>
-            <form class="form-horizontal" id="editbank" action="/bank/{{ $bank->id }}" method="post">
+            <form class="form-horizontal" id="editpenjualan" action="/penjualan/{{ $penjualan->id }}" method="post">
                 @csrf
                 @method('put')
                 <div class="modal-body">
@@ -24,7 +24,7 @@
                                 <label for="tanggal_setoran" class="col-sm-3">Tanggal</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="date" class="form-control" name="tanggal_setoran" id="tanggal_setoran" value="{{ $bank->tanggal_setoran }}" required>
+                                        <input type="date" class="form-control" name="tanggal_setoran" id="tanggal_setoran" value="{{ $penjualan->tanggal_setoran }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -32,15 +32,15 @@
                                 <label for="keterangan" class="col-sm-3">Keterangan</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="keterangan" id="keterangan" value="{{ $bank->keterangan }}" required>
+                                        <input type="text" class="form-control" name="keterangan" id="keterangan" value="{{ $penjualan->keterangan }}" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="setoran_bank" class="col-sm-3">Setoran Bank</label>
+                                <label for="setoran_penjualan" class="col-sm-3">Setoran Penjualan</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="setoran_bank" id="setoran_bank" value="{{ $bank->setoran_bank }}" required>
+                                        <input type="text" class="form-control" name="setoran_penjualan" id="setoran_penjualan" value="{{ $penjualan->setoran_penjualan }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class=" modal-footer right-content-between">
-                    <a href="/bank" class="btn btn-default">Batal</a>
+                    <a href="/penjualan" class="btn btn-default">Batal</a>
                     <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
             </form>
