@@ -19,4 +19,9 @@ class SaldoModel extends Model
         return self::sum('jumlah_saldo');
     }
     protected $guarded = ['id'];
+
+    public static function filterBulan()
+    {
+        return self::where('Month(tanggal_saldo)');
+    }
 }

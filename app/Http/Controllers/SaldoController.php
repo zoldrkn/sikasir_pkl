@@ -26,7 +26,10 @@ class SaldoController extends Controller
         $totalSetoran = BankModel::getTotalSetoran();
         // Menghitung saldo setelah dikurangi jumlah keluar
         $saldoAkhir = ($totalSaldo - $totalKeluar) + ($totalMasuk) + ($totalPenjualan) - ($totalSetoran);
-        return view('admin.saldo.saldo', ['saldoAkhir' => $saldoAkhir])->with([
+        
+        $filterBulan = SaldoModel::filterBulan();
+        
+        return view('admin.saldo.saldo',  compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([
             'saldo' => SaldoModel::all(),
         ]);
     }

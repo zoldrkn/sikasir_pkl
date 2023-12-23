@@ -67,36 +67,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="tanggal_masuk" class="col-sm-3">Tanggal Kembali</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="date" class="form-control" name="tanggal_masuk" id="tanggal_masuk" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="jumlah_masuk" class="col-sm-3">Jumlah Kembalian</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="jumlah_masuk" id="jumlah_masuk" placeholder="Kas Kembali">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="" class="col-sm-3">Detail Keterangan</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="saldo" id="saldo" placeholder="Detail">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class=" modal-footer right-content-between">
-                    <a href="saldo" class="btn btn-default">Batal</a>
+                    <a href="kaskecil" class="btn btn-default">Batal</a>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
             </form>

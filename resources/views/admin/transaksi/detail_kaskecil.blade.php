@@ -1,6 +1,6 @@
 @extends('layout.mainlayout')
 
-@section('title', 'Edit Transaksi')
+@section('title', 'Detail Transaksi')
     
 @section('content')
 
@@ -11,7 +11,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                <h4>Edit Transaksi ( {{ $kaskecil->kode_kaskeluar }} // {{ $kaskecil->tanggal_transaksi }} )</h4>
+                <h4>Detail Transaksi ( {{ $kaskecil->kode_kaskeluar }} // {{ $kaskecil->tanggal_transaksi }} )</h4>
             </div>
             <form class="form-horizontal" id="editkaskecil" action="/kaskecil/{{ $kaskecil->id }}" method="post">
                 @csrf
@@ -20,6 +20,17 @@
                     <!-- PENGGUNA -->
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
+                            <div class="form-group row">
+                                <label for="nama_karyawan" class="col-sm-3">Nama/Divisi</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        
+                                        <input type="text" class="form-control" name="id" id="id" value="{{ $kaskecil->nama_karyawan }}, {{ $kaskecil->divisi }} " readonly>
+                                       
+                                    </div>
+
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="keterangan_transaksi" class="col-sm-3">Keterangan</label>
                                 <div class="col-sm-9">
