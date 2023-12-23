@@ -21,5 +21,10 @@ class KeteranganModel extends Model
         'lainnya',
         'nominal_lainnya',
     ];
+
+    public function transaksi_relasi()
+    {
+        return $this->hasMany(TransaksiModel::class);
+    }
     
 }

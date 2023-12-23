@@ -37,6 +37,20 @@ class TransaksiController extends Controller
 
     public function store(Request $request)
     {
+        
+        // $kaskecil = TransaksiModel::create($request->all());
+
+        // // Dapatkan ID transaksi yang baru dibuat
+        // $transaksi_kaskecil_id = $kaskecil->id;
+    
+        // // Buat karyawan dengan menambahkan karyawan_id yang sesuai
+        // $karyawanData = array_merge($request->all(), ['transaksi_kaskecil_id' => $transaksi_kaskecil_id]);
+        // $karyawan = KaryawanModel::create($karyawanData);
+    
+        // // Buat keterangan dengan menambahkan keterangan_id yang sesuai
+        // $keteranganData = array_merge($request->all(), ['transaksi_kaskecil_id' => $transaksi_kaskecil_id]);
+        // $keterangan = KeteranganModel::create($keteranganData);
+
         $kaskecil = TransaksiModel::create($request->all());
         $karyawan = KaryawanModel::create($request->all());
         $keterangan = KeteranganModel::create($request->all());
@@ -45,11 +59,16 @@ class TransaksiController extends Controller
         return redirect('/kaskecil')->with('success', 'Berhasil Menambahkan Data');
     }
 
-    public function detail_kaskecil(Request $request, $id)
+    public function detail_kaskecil(Request $request, $id, $karyawan_id, $keterangan_id)
     {
 
         $kaskecil = TransaksiModel::findOrFail($id);
-        return view('admin.transaksi.detail_kaskecil', ['kaskecil' => $kaskecil]);
+        
+        $karyawan = TransaksiModel::with('karyawan_relasi')->find($karyawan_id);
+      
+        $keterangan = TransaksiModel::with('keterangan_relasi')->find($keterangan_id);
+        
+        return view('admin.transaksi.detail_kaskecil', compact('karyawan', 'kaskecil', 'keterangan'));
     }
 
     public function edit_kaskecil(Request $request, $id)

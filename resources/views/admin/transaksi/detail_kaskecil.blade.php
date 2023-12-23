@@ -21,14 +21,13 @@
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
                             <div class="form-group row">
-                                <label for="nama_karyawan" class="col-sm-3">Nama/Divisi</label>
+                                <label for="karyawan_id" class="col-sm-3">Nama/Divisi</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        
-                                        <input type="text" class="form-control" name="id" id="id" value="{{ $kaskecil->nama_karyawan }}, {{ $kaskecil->divisi }} " readonly>
-                                       
+                                                                          
+                                        <input type="text" class="form-control" name="karyawan_id" id="karyawan_id" value="{{ $kaskecil->karyawan_relasi->nama_karyawan }}, {{ $kaskecil->karyawan_relasi->divisi }}" readonly>   
+                                                                       
                                     </div>
-
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -64,13 +63,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket1" class="col-sm-3">Lainnya (1)</label>
+                                <label for="keterangan_id" class="col-sm-3">Lainnya (1)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="ket1" id="ket1" value="{{ $kaskecil->nominal1 }}" >
+                                        <input type="text" class="form-control" name="keterangan_id" id="keterangan_id" value="{{ $kaskecil->keterangan_relasi->ket1 }}" >
                                     </div><br>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal1" id="nominal1" value="{{ $kaskecil->nominal1 }}" >
+                                        <input type="number" class="form-control" name="keterangan_id" id="keterangan_id" value="{{ $kaskecil->keterangan_relasi->nominal1 }}" >
                                     </div>
                                 </div>
                             </div>

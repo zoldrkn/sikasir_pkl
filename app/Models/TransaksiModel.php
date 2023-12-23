@@ -16,6 +16,12 @@ class TransaksiModel extends Model
         'tanggal_transaksi',
         'tanggal_masuk',
         'keterangan_transaksi',
+        'karyawan_id',
+        'keterangan_id',
+    ];
+    
+    protected $attributes = [
+        'karyawan_id' => 1, // Ganti dengan nilai default yang sesuai
     ];
     
     public static function getTotalKeluar()
@@ -32,5 +38,16 @@ class TransaksiModel extends Model
     {
         return self::where('Month(tanggal_transaksi)');
     }
+
+   // Di dalam model TransaksiModel
+public function karyawan_relasi()
+{
+    return $this->belongsTo(KaryawanModel::class, 'karyawan_id');
+}
+
+public function keterangan_relasi()
+{
+    return $this->belongsTo(KeteranganModel::class, 'keterangan_id');
+}
     
 }
