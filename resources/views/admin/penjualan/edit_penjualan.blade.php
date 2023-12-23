@@ -17,7 +17,6 @@
                 @csrf
                 @method('put')
                 <div class="modal-body">
-                    <!-- PENGGUNA -->
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
                             <div class="form-group row">
