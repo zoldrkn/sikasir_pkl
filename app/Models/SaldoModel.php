@@ -20,8 +20,4 @@ class SaldoModel extends Model
     }
     protected $guarded = ['id'];
 
-    public static function filterBulan()
-    {
-        return self::where('Month(tanggal_saldo)');
-    }
 }

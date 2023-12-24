@@ -8,7 +8,6 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                {{-- <?php $this->view('layouts.alert'); ?> --}}
                 <!-- Di dalam tampilan -->
 @if(session('success'))
 <div class="alert alert-success">
@@ -38,12 +37,6 @@
                             </div>
                         </div>
                         
-
-                        {{-- @if(session::has('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session::get('message') }}
-                        </div>
-                        @endif --}}
 
                         <div class="float-right">
                             <p>Total Saldo</p>
@@ -114,9 +107,9 @@
                                         <td>Rp. {{ number_format($item->jumlah_keluar, 0, ',', '.') }},00</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
-                                            <a href="kaskecil_detail/{{ $item->id }}/{{ $item->karyawan_id }}"
+                                            <a href="kaskecil_detail/{{ $item->id }}/{{ $item->karyawan_id }}/{{ $item->transaksi_relasi->id }}"
                                             class="btn bg-navy btn-sm"><i class="fas fa-eye"></i></a>
-                                                <a href="kaskecil_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                                <a href="kaskecil_edit/{{ $item->id }}/{{ $item->transaksi_relasi->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
                                             <a data-toggle="modal" href="#delete_kaskecil{{ $item->id }}"
                                                 class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                                 @endif

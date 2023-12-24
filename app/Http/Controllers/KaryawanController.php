@@ -11,8 +11,7 @@ class KaryawanController extends Controller
 {
     function tampil_karyawan()
     {
-        $filterDivisi = KaryawanModel::filterDivisi();
-        return view('admin.karyawan.tampil_karyawan',  compact('filterDivisi'))->with([
+        return view('admin.karyawan.tampil_karyawan')->with([
             'karyawan' => KaryawanModel::all(),
         ]);
     }

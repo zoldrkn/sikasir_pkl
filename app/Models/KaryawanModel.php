@@ -20,8 +20,4 @@ class KaryawanModel extends Model
         return $this->hasMany(TransaksiModel::class);
     }
 
-    public static function filterDivisi()
-    {
-        return self::where('divisi');
-    }
 }

@@ -10,6 +10,7 @@ class KeteranganModel extends Model
     use HasFactory;
     protected $table = 'keterangan';
     protected $fillable = [
+        'transaksi_kaskecil_id',
         'ket1',
         'ket2',
         'ket3',
@@ -20,10 +21,9 @@ class KeteranganModel extends Model
         'nominal4',
         'lainnya',
         'nominal_lainnya',
-        'transaksi_kaskecil_id'
     ];
 
-    public function transaksi_relasi()
+    public function keterangan_relasi()
     {
         return $this->belongsTo(TransaksiModel::class, 'transaksi_kaskecil_id');
     }

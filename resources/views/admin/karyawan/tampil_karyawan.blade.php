@@ -25,46 +25,12 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        @if(Auth::user()->role == 'admin')
+                        
                         <div class="row">
                             <div class="col-12">
                                 <a href="karyawan_tambah" class="btn btn-primary mb-3">
                                     <i class="far fa-plus"></i> Tambah Karyawan
                                 </a>
-                            </div>
-                        </div>
-                        @endif
-
-                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        <script>
-                            $(document).ready(function($) {
-                                $('table').show();
-                        
-                                $('#mySelector').change(function() {
-                                    var selection = $(this).val();
-                                    var dataset = $('#example1 tbody').find('tr');
-                        
-                                    dataset.show();
-                        
-                                    if (selection !== "") {
-                                        dataset.filter(function(index, item) {
-                                            var divisi = $(item).find('td:nth-child(4)').text(); // Ubah angka sesuai dengan posisi kolom divisi
-                                            return divisi.trim() !== selection;
-                                        }).hide();
-                                    }
-                                });
-                            });
-                        </script>
-
-                        <div class="form-group">
-                            <div class="col-2">
-                                <label for="mySelector">Divisi</label>
-                                <select class="form-control" id="mySelector">
-                                    <option selected value="">Semua Divisi</option>
-                                    @foreach ($karyawan as $no => $item)
-                                    <option value="{{ $item->divisi }}">{{ $item->divisi }}</option>
-                                    @endforeach
-                                </select>
                             </div>
                         </div>
 
@@ -75,9 +41,9 @@
                                         <th>No</th>                                       
                                         <th>Nama Karyawan</th>
                                         <th>Divisi</th>               
-                                        @if(Auth::user()->role == 'admin')                    
+                                                      
                                         <th width="14%">Tombol Aksi</th>
-                                        @endif
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -85,15 +51,14 @@
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->nama_karyawan }}</td>
-                                        <td class="text-center">{{ $item->divisi }}</td>  
-                                        @if(Auth::user()->role == 'admin')                              
+                                        <td class="text-center">{{ $item->divisi }}</td>                           
                                         <td class="text-center">                                        
                                                 <a href="karyawan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
                                             <a data-toggle="modal" href="#delete_karyawan{{ $item->id }}"
                                                 class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                                
                                         </td>
-                                        @endif
+                                     
                                     </tr>
                                     @endforeach
                                 </tbody>
