@@ -37,6 +37,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="pembayaran" class="col-sm-3">Pembayaran</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <select class="form-control" name="pembayaran" id="pembayaran" value="{{ $penjualan->keterangan }}"  required>
+                                            <option value="{{ $penjualan->pembayaran }}" >{{$penjualan->pembayaran}}</option>
+                                            <option value="cash">cash</option>
+                                            <option value="kredit">kredit</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="setoran_penjualan" class="col-sm-3">Setoran Penjualan</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">

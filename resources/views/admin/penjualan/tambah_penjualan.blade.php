@@ -35,6 +35,18 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="pembayaran" class="col-sm-3">Pembayaran</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <!-- <input select="text" class="form-control" name="pembayaran" id="pembayaran" placeholder="Cash/Kredit" required> -->
+                                        <select class="form-control" name="pembayaran" id="pembayaran" placeholder="Cash/Kredit" required>
+                                            <option value="cash">Cash</option>
+                                            <option value="kredit">Kredit</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="setoran_penjualan" class="col-sm-3">Setoran Masuk (Rp.)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
