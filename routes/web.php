@@ -50,15 +50,16 @@ route::get('/setoran_bank', [SetoranController::class, 'tampil_bank']);
 route::get('/bank_tambah', [SetoranController::class, 'create_bank']);
 route::post('/setoran_bank', [SetoranController::class, 'store_bank']);
 route::get('/bank_edit/{id}', [SetoranController::class, 'edit_bank']);
-route::put('/bank/{id}', [SetoranController::class, 'update_bank']); 
+route::put('/bank/{id}', [SetoranController::class, 'update_bank']);
 route::delete('/bank_destroy/{id}', [SetoranController::class, 'destroy_bank']);
 
 //COBA TRANSAKSI "DONE"
 route::get('/kaskecil', [TransaksiController::class, 'tampil_kaskecil']);
 route::get('/kaskecil_tambah', [TransaksiController::class, 'create_kaskecil']);
 route::post('/kaskecil', [TransaksiController::class, 'store']);
+Route::get('/kaskecil_detail/{id}/{karyawan_id}/{transaksi_kaskecil_id}', [TransaksiController::class, 'detail_kaskecil']);
 route::get('/kaskecil_edit/{id}', [TransaksiController::class, 'edit_kaskecil']);
-route::put('/kaskecil/{id}', [TransaksiController::class, 'update']); 
+route::put('/kaskecil/{id}', [TransaksiController::class, 'update']);
 route::delete('/kaskecil_destroy/{id}', [TransaksiController::class, 'destroy']); //menghapus transaksi tidak menghapus data karyawan
 
 //CRUD SALDO "DONE"

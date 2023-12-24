@@ -6,6 +6,7 @@ use App\Models\KaryawanModel;
 use App\Models\TransaksiModel;
 use App\Models\PenjualanModel;
 use App\Models\BankModel;
+use App\Models\KeteranganModel;
 use App\Models\SaldoModel;
 use Illuminate\Http\Request;
 
@@ -14,12 +15,6 @@ class TransaksiController extends Controller
 
     function tampil_kaskecil()
     {
-       
-        // $totalSaldo = SaldoModel::getTotalSaldo();
-        // $totalKeluar = TransaksiModel::getTotalKeluar();
-        // $totalMasuk = TransaksiModel::getTotalMasuk();
-        // // Menghitung saldo setelah dikurangi jumlah keluar
-        // $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk;
         $totalSaldo = SaldoModel::getTotalSaldo();
         $totalKeluar = TransaksiModel::getTotalKeluar();
         $totalMasuk = TransaksiModel::getTotalMasuk();
@@ -36,31 +31,59 @@ class TransaksiController extends Controller
 
     function create_kaskecil()
     {
-        
-        return view('admin.transaksi.tambah_kaskecil');
+        $karyawan = KaryawanModel::all();
+        return view('admin.transaksi.tambah_kaskecil', compact('karyawan'));
     }
 
     public function store(Request $request)
     {
+        
         $kaskecil = TransaksiModel::create($request->all());
-        $karyawan = KaryawanModel::create($request->all());
-       
+
+        $keterangan = KeteranganModel::create([
+            'transaksi_kaskecil_id' => $kaskecil->id,
+            'ket1' => $request->input('ket1'),
+            'ket2' => $request->input('ket2'),
+            'ket3' => $request->input('ket3'),
+            'nominal1' => $request->input('nominal1'),
+            'nominal2' => $request->input('nominal2'),
+            'nominal3' => $request->input('nominal3'),
+            'nominal4' => $request->input('nominal4'),
+            'lainnya' => $request->input('lainnya'),
+            'nominal_lainnya'=> $request->input('nominal_lainnya'),
+        ]);
+               
         // return redirect('/kaskecil');
         return redirect('/kaskecil')->with('success', 'Berhasil Menambahkan Data');
     }
 
-    public function edit_kaskecil(Request $request, $id)
+    public function detail_kaskecil(Request $request, $id, $karyawan_id)
     {
 
         $kaskecil = TransaksiModel::findOrFail($id);
-        return view('admin.transaksi.edit_kaskecil', ['kaskecil' => $kaskecil]);
+        
+        $karyawan = TransaksiModel::with('karyawan_relasi')->find($karyawan_id);
+      
+        // $keterangan = TransaksiModel::with('keterangan_relasi')->find($keterangan_id);
+        
+        return view('admin.transaksi.detail_kaskecil', compact('karyawan', 'kaskecil'));
+    }
+
+    public function edit_kaskecil(Request $request, $id, $transaksi_kaskecil_id)
+    {
+
+        $kaskecil = TransaksiModel::findOrFail($id);
+        $keterangan = KeteranganModel::with('transaksi_relasi')->find($transaksi_kaskecil_id);
+        return view('admin.transaksi.edit_kaskecil', compact('keterangan', 'kaskecil'));
     }
 
     public function update(Request $request, $id)
     {
         $kaskecil = TransaksiModel::findOrFail($id);
-
         $kaskecil->update($request->all());
+
+        $keterangan = KeteranganModel::findOrFail($id);
+        $keterangan->update($request->all());
 
         return redirect('/kaskecil')->with('warning', 'Data Berhasil Diubah');
     }

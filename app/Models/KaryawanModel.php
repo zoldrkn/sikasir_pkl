@@ -14,4 +14,14 @@ class KaryawanModel extends Model
         'divisi',
     ];
     protected $guarded = ['id'];
+
+    public function transaksi_relasi()
+    {
+        return $this->hasMany(TransaksiModel::class);
+    }
+
+    public static function filterDivisi()
+    {
+        return self::where('divisi');
+    }
 }

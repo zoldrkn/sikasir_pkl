@@ -35,21 +35,26 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="divisi" class="col-sm-3">Divisi</label>
+                                <label class="col-sm-3">Nama/Divisi</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="divisi" id="divisi" required>
-                                    </div>
+                                        <select class="form-control" name="karyawan_id"  id="karyawan_id" required>
+                                            <option value="">-Pilih-</option>
+                                    @foreach ($karyawan as $karyawan)
+                                        <option value="{{ $karyawan->id }}">{{ $karyawan->nama_karyawan }} - {{ $karyawan->divisi }}</option>
+                                    @endforeach
+                                </select>
+                                </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="nama_karyawan" class="col-sm-3">Nama</label>
+                            {{-- <div class="form-group row">
+                                <label for="karyawan_id" class="col-sm-3">Nama</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="nama_karyawan" id="nama_karyawan" required>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                             <div class="form-group row">
                                 <label for="keterangan_transaksi" class="col-sm-3">Keterangan</label>
@@ -67,36 +72,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="tanggal_masuk" class="col-sm-3">Tanggal Kembali</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="date" class="form-control" name="tanggal_masuk" id="tanggal_masuk" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="jumlah_masuk" class="col-sm-3">Jumlah Kembalian</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="jumlah_masuk" id="jumlah_masuk" placeholder="Kas Kembali">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="" class="col-sm-3">Detail Keterangan</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="saldo" id="saldo" placeholder="Detail">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div class=" modal-footer right-content-between">
-                    <a href="saldo" class="btn btn-default">Batal</a>
+                    <a href="kaskecil" class="btn btn-default">Batal</a>
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
             </form>

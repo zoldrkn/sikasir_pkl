@@ -11,7 +11,8 @@ class KaryawanController extends Controller
 {
     function tampil_karyawan()
     {
-        return view('admin.karyawan.tampil_karyawan')->with([
+        $filterDivisi = KaryawanModel::filterDivisi();
+        return view('admin.karyawan.tampil_karyawan',  compact('filterDivisi'))->with([
             'karyawan' => KaryawanModel::all(),
         ]);
     }
@@ -24,7 +25,7 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $karyawan = KaryawanModel::create($request->all());
-        return redirect('/karyawan')->with('seccess', 'Berhasil Menambahkan Data');
+        return redirect('/karyawan')->with('success', 'Berhasil Menambahkan Data');
     }
 
     public function edit_karyawan(Request $request, $id)
