@@ -35,21 +35,26 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="divisi" class="col-sm-3">Divisi</label>
+                                <label class="col-sm-3">Nama/Divisi</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="divisi" id="divisi" required>
-                                    </div>
+                                        <select class="form-control" name="karyawan_id"  id="karyawan_id" required>
+                                            <option value="">-Pilih-</option>
+                                    @foreach ($karyawan as $karyawan)
+                                        <option value="{{ $karyawan->id }}">{{ $karyawan->nama_karyawan }} - {{ $karyawan->divisi }}</option>
+                                    @endforeach
+                                </select>
+                                </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="nama_karyawan" class="col-sm-3">Nama</label>
+                            {{-- <div class="form-group row">
+                                <label for="karyawan_id" class="col-sm-3">Nama</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="nama_karyawan" id="nama_karyawan" required>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                             <div class="form-group row">
                                 <label for="keterangan_transaksi" class="col-sm-3">Keterangan</label>

@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('transaksi_kaskecil', function (Blueprint $table) {
-            $table->unsignedBigInteger('keterangan_id')->required();
-            $table->foreign('keterangan_id')->references('id')->on('keterangan');
+            $table->unsignedBigInteger('karyawan_id')->required();
+            $table->foreign('karyawan_id')->references('id')->on('karyawan');
         });
     }
 
@@ -23,8 +23,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('transaksi_kaskecil', function (Blueprint $table) {
-            $table->dropForeign(['keterangan_id']);
-            $table->dropColumn('keterangan_id');
+            $table->dropForeign(['karyawan_id']);
+            $table->dropColumn('karyawan_id');
         });
     }
 };

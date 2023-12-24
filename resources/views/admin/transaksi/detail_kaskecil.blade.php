@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="keterangan_id" class="col-sm-3">Lainnya (1)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
@@ -105,7 +105,7 @@
                                         <input type="number" class="form-control" name="nominal4" id="nominal4" value="{{ $kaskecil->nominal4 }}" >
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="form-group row">
                                 <label for="" class="col-sm-3">Lainnya (3)</label>
                                 <div class="col-sm-9">
@@ -128,7 +128,7 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label class="col-sm-3">Ket</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
@@ -142,7 +142,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="form-group row">
                                 <label for="profit" class="col-sm-3 ">Ket</label>
                                 <div class="col-sm-9">

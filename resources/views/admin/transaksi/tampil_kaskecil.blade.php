@@ -114,7 +114,7 @@
                                         <td>Rp. {{ number_format($item->jumlah_keluar, 0, ',', '.') }},00</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
-                                            <a href="kaskecil_detail/{{ $item->id }}/{{ $item->karyawan_id }}/{{ $item->keterangan_id }}"
+                                            <a href="kaskecil_detail/{{ $item->id }}/{{ $item->karyawan_id }}"
                                             class="btn bg-navy btn-sm"><i class="fas fa-eye"></i></a>
                                                 <a href="kaskecil_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
                                             <a data-toggle="modal" href="#delete_kaskecil{{ $item->id }}"

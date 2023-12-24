@@ -32,7 +32,7 @@
                                 <label for="jumlah_keluar" class="col-sm-3">Jumlah Kas Keluar</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="jumlah_keluar" id="jumlah_keluar" value="{{ $kaskecil->jumlah_keluar }}" readonly>
+                                        <input type="text" class="form-control" name="jumlah_keluar" id="jumlah_keluar" value="{{ $kaskecil->jumlah_keluar }}">
                                     </div>
                                 </div>
                             </div>
