@@ -42,7 +42,7 @@ route::get('/setoran_penjualan', [SetoranController::class, 'tampil_penjualan'])
 route::get('/penjualan_tambah', [SetoranController::class, 'create_penjualan']);
 route::post('/setoran_penjualan', [SetoranController::class, 'store_penjualan']);
 route::get('/penjualan_edit/{id}', [SetoranController::class, 'edit_penjualan']);
-route::put('/setoran_penjualan/{id}', [SetoranController::class, 'update_penjualan']);
+route::put('/penjualan/{id}', [SetoranController::class, 'update_penjualan']);
 route::delete('/penjualan_destroy/{id}', [SetoranController::class, 'destroy_penjualan']);
 
 //CRUD SETORAN BANK

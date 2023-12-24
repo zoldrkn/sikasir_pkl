@@ -20,10 +20,10 @@
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
                             <div class="form-group row">
-                                <label for="tanggal_setoran" class="col-sm-3">Tanggal</label>
+                                <label for="tanggal_penjualan" class="col-sm-3">Tanggal</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="date" class="form-control" name="tanggal_setoran" id="tanggal_setoran" value="{{ $penjualan->tanggal_setoran }}" required>
+                                        <input type="date" class="form-control" name="tanggal_penjualan" id="tanggal_penjualan" value="{{ $penjualan->tanggal_penjualan }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -40,9 +40,8 @@
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <select class="form-control" name="pembayaran" id="pembayaran" value="{{ $penjualan->keterangan }}"  required>
-                                            <option value="{{ $penjualan->pembayaran }}" >{{$penjualan->pembayaran}}</option>
-                                            <option value="cash">cash</option>
-                                            <option value="kredit">kredit</option>
+                                            <option @if($penjualan['pembayaran']=='cash') selected @endif value="cash">cash</option>
+                                            <option @if($penjualan['pembayaran']=='kredit') selected @endif value="kredit">kredit</option>
                                         </select>
                                     </div>
                                 </div>
