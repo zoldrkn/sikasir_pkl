@@ -64,7 +64,7 @@ class TransaksiController extends Controller
         
         $karyawan = TransaksiModel::with('karyawan_relasi')->find($karyawan_id);
       
-        $keterangan = KeteranganModel::with('transaksi_relasi')->find($transaksi_kaskecil_id);
+        $keterangan = KeteranganModel::with('keterangan_relasi')->find($transaksi_kaskecil_id);
         
         return view('admin.transaksi.detail_kaskecil', compact('karyawan', 'kaskecil','keterangan'));
     }
@@ -73,9 +73,8 @@ class TransaksiController extends Controller
     {
 
         $kaskecil = TransaksiModel::findOrFail($id);
-        
-       
-        $keterangan = KeteranganModel::with('transaksi_relasi')->find($transaksi_kaskecil_id);
+           
+        $keterangan = KeteranganModel::with('keterangan_relasi')->find($transaksi_kaskecil_id);
         // $keterangan = KeteranganModel::findOrFail($transaksi_kaskecil_id);
         
         return view('admin.transaksi.edit_kaskecil', compact('keterangan', 'kaskecil'));

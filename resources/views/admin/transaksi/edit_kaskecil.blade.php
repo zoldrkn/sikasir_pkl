@@ -13,13 +13,12 @@
                     <div class="card-body">
                 <h4>Edit Transaksi ( {{ $kaskecil->kode_kaskeluar }} // {{ $kaskecil->tanggal_transaksi }} )</h4>
             </div>
-            @if ($kaskecil && $kaskecil->transaksi_relasi)
+           
     <!-- Lakukan sesuatu dengan $kaskecil dan $kaskecil->transaksi_relasi -->
-    <form class="form-horizontal" id="editkaskecil" action="/kaskecil/{{ $kaskecil->id }}/{{ $kaskecil->transaksi_relasi->id }}" method="post">
+    <form class="form-horizontal" id="editkaskecil" action="/kaskecil/{{ $kaskecil->id }}/{{ $kaskecil->transaksi_relasi->id  }}" method="post">
         @csrf
         @method('put')
-    </form>
-    @else
+ 
                 <div class="modal-body">
                     <!-- PENGGUNA -->
                     <div class="row">
@@ -67,14 +66,14 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="form-group row">
+                            <div class="form-group row">
                                 <label for="ket2" class="col-sm-3">Lainnya (2)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="ket2" id="ket2" value="{{ $kaskecil->ket2 }}" >
+                                        <input type="text" class="form-control" name="ket2" id="ket2" value="{{ $kaskecil->transaksi_relasi->ket2 ?? ''  }}" >
                                     </div><br>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal2" id="nominal2" value="{{ $kaskecil->nominal2 }}" >
+                                        <input type="number" class="form-control" name="nominal2" id="nominal2" value="{{ $kaskecil->transaksi_relasi->nominal2 ?? ''  }}" >
                                     </div>
                                 </div>
                             </div>
@@ -82,81 +81,47 @@
                                 <label for="ket3" class="col-sm-3">Lainnya (3)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="ket3" id="ket3" value="{{ $kaskecil->ket3 }}" >
+                                        <input type="text" class="form-control" name="ket3" id="ket3" value="{{ $kaskecil->transaksi_relasi->ket3 ?? ''  }}" >
                                     </div><br>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal3" id="nominal3" value="{{ $kaskecil->nominal3 }}" >
+                                        <input type="number" class="form-control" name="nominal3" id="nominal3" value="{{ $kaskecil->transaksi_relasi->nominal3 ?? ''  }}" >
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket4" class="col-sm-3">Lainnya (4)</label>
+                                <label for="ket2" class="col-sm-3">Lainnya (4)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="ket4" id="ket4" value="{{ $kaskecil->ket4 }}" >
+                                        <input type="text" class="form-control" name="ket4" id="ket4" value="{{ $kaskecil->transaksi_relasi->ket4 ?? ''  }}" >
                                     </div><br>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal4" id="nominal4" value="{{ $kaskecil->nominal4 }}" >
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="form-group row">
-                                <label for="" class="col-sm-3">Lainnya (3)</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="" id="" value="" >
-                                    </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="" id="" value="" >
+                                        <input type="number" class="form-control" name="nominal4" id="nominal4" value="{{ $kaskecil->transaksi_relasi->nominal4 ?? ''  }}" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="" class="col-sm-3">Lainnya (4)</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="" id="" value="" >
-                                    </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="" id="" value="" >
-                                    </div>
-                                </div>
-                            </div> --}}
                             <div class="form-group row">
                                 <label class="col-sm-3">Ket</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <select class="form-control" name="lainnya">
-                                            <option value="">-Pilih-</option>
-                                            <option value="Pendapatan Lain-Lain">Pendapatan Lain-Lain</option>
-                                            <option value="Beban Selisih">Beban Selisih</option>
-                                        </select>
+                                        <select class="form-control" name="lainnya" id="lainnya">
+                                           
+                                            <option value="">{{ $kaskecil->transaksi_relasi->lainnya}}</option>
+                                <option value="Pendapatan Lain-Lain" {{ $kaskecil->transaksi_relasi->lainnya }}>Pendapatan Lain-Lain</option>
+                                <option value="Beban Selisih" {{ $kaskecil->transaksi_relasi->lainnya }}>Beban Selisih
+                                </option>
+                            </select>
+                                       
                                     </div><br>
                                         <div class="input-group">
-                                            <input type="number" class="form-control" name="nominal_lainnya" id="nominal_lainnya" value="{{ $kaskecil->nominal_lainnya }}" >
+                                            <input type="number" class="form-control" name="nominal_lainnya" id="nominal_lainnya" value="{{ $kaskecil->transaksi_relasi->nominal_lainnya }}" >
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="form-group row">
-                                <label for="profit" class="col-sm-3 ">Ket</label>
-                                <div class="col-sm-9">
-                                    <select name="status" class="form-control">
-                                        {{ $kaskecil->lainnya }}
-                                <option value="" {{ $kaskecil == '' ? "selected" : null;}}>--Pilih--</option>
-                                <option value="Pendapatan Lain-Lain" {{ $kaskecil->lainnya=='Pendapatan Lain-Lain'? "selected": null; }}>Pendapatan Lain-Lain</option>
-                                <option value="Beban Selisih" {{ $kaskecil->lainnya=='Beban Selisih'? "selected": null; }}>Beban Selisih</option>      
-                                    </select><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="" id="" value="   {{ $kaskecil->nominal_lainnya }}" >
-                                    </div>
-                                </div>
-                                
-                            </div> --}}
                         </div>
                     </div>
                 </div>
-                @endif
+         
 
                 <div class=" modal-footer right-content-between">
                     <a href="/kaskecil" class="btn btn-default">Batal</a>

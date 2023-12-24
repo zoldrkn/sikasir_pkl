@@ -44,8 +44,8 @@ class TransaksiModel extends Model
         return $this->belongsTo(KaryawanModel::class, 'karyawan_id');
     }
 
-    public function keterangan_relasi()
+    public function transaksi_relasi()
     {
-        return $this->hasMany(KeteranganModel::class, 'transaksi_kaskecil_id');
+        return $this->hasOne(KeteranganModel::class, 'transaksi_kaskecil_id');
     }
 }

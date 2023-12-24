@@ -8,7 +8,7 @@
 <section class="content">
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12">        
                 <div class="card">
                     <div class="card-body">
                 <h4>Detail Transaksi ( {{ $kaskecil->kode_kaskeluar }} // {{ $kaskecil->tanggal_transaksi }} )</h4>
@@ -23,148 +23,120 @@
                             <div class="form-group row">
                                 <label for="karyawan_id" class="col-sm-3">Nama/Divisi</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                                                          
-                                        <input type="text" class="form-control" name="karyawan_id" id="karyawan_id" value="{{ $kaskecil->karyawan_relasi->nama_karyawan }}, {{ $kaskecil->karyawan_relasi->divisi }}" readonly>   
-                                                                       
+                                    <div>                                               
+                                        <p>{{ $kaskecil->karyawan_relasi->nama_karyawan }} - {{ $kaskecil->karyawan_relasi->divisi }}                             
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="keterangan_transaksi" class="col-sm-3">Keterangan</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="keterangan_transaksi" id="keterangan_transaksi" value="{{ $kaskecil->keterangan_transaksi }}" required>
+                                    <div>                                               
+                                        <p>{{ $kaskecil->keterangan_transaksi }}                             
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="jumlah_keluar" class="col-sm-3">Jumlah Kas Keluar</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="jumlah_keluar" id="jumlah_keluar" value="{{ $kaskecil->jumlah_keluar }}" readonly>
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->jumlah_keluar }}                             
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="tanggal_masuk" class="col-sm-3">Tanggal Kembali</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="date" class="form-control" name="tanggal_masuk" id="tanggal_masuk" value="{{ $kaskecil->tanggal_masuk }}">
+                                    <div>                                               
+                                        <p>{{ $kaskecil->tanggal_masuk }}                             
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="jumlah_masuk" class="col-sm-3">Jumlah Kembali</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="jumlah_masuk" id="jumlah_masuk" value="{{ $kaskecil->jumlah_masuk }}" >
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->jumlah_masuk }}                             
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="form-group row">
-                                <label for="keterangan_id" class="col-sm-3">Lainnya (1)</label>
+                            <div class="form-group row">
+                                <label for="ket1" class="col-sm-3">Lainnya (1)</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="keterangan_id" id="keterangan_id" value="{{ $kaskecil->keterangan_relasi->ket1 }}" >
+                                    <div>                                               
+                                        <p>{{ $kaskecil->transaksi_relasi->ket1}}                            
+                                        </p>
                                     </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="keterangan_id" id="keterangan_id" value="{{ $kaskecil->keterangan_relasi->nominal1 }}" >
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal1}}                           
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="ket2" class="col-sm-3">Lainnya (2)</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="ket2" id="ket2" value="{{ $kaskecil->ket2 }}" >
+                                    <div>                                               
+                                        <p>{{ $kaskecil->transaksi_relasi->ket2}}                            
+                                        </p>
                                     </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal2" id="nominal2" value="{{ $kaskecil->nominal2 }}" >
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal2}}                           
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="ket3" class="col-sm-3">Lainnya (3)</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="ket3" id="ket3" value="{{ $kaskecil->ket3 }}" >
+                                    <div>                                               
+                                        <p>{{ $kaskecil->transaksi_relasi->ket3}}                            
+                                        </p>
                                     </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal3" id="nominal3" value="{{ $kaskecil->nominal3 }}" >
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal3}}                           
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="ket4" class="col-sm-3">Lainnya (4)</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="ket4" id="ket4" value="{{ $kaskecil->ket4 }}" >
+                                    <div>                                               
+                                        <p>{{ $kaskecil->transaksi_relasi->ket4}}                            
+                                        </p>
                                     </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal4" id="nominal4" value="{{ $kaskecil->nominal4 }}" >
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="form-group row">
-                                <label for="" class="col-sm-3">Lainnya (3)</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="" id="" value="" >
-                                    </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="" id="" value="" >
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal4}}                           
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="" class="col-sm-3">Lainnya (4)</label>
+                                <label for="lainnya" class="col-sm-3">Ket</label>
                                 <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" name="" id="" value="" >
+                                    <div>                                               
+                                        <p>{{ $kaskecil->transaksi_relasi->lainnya}}                            
+                                        </p>
                                     </div><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="" id="" value="" >
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal_lainnya}}                           
+                                        </p>
                                     </div>
                                 </div>
-                            </div> --}}
-                            {{-- <div class="form-group row">
-                                <label class="col-sm-3">Ket</label>
-                                <div class="col-sm-9">
-                                    <div class="input-group">
-                                        <select class="form-control" name="lainnya">
-                                            <option value="">-Pilih-</option>
-                                            <option value="Pendapatan Lain-Lain">Pendapatan Lain-Lain</option>
-                                            <option value="Beban Selisih">Beban Selisih</option>
-                                        </select><br>
-                                        <div class="input-group">
-                                            <input type="number" class="form-control" name="lainnya_nominal" id="lainnya_nominal" value="{{ $kaskecil->nominal_lainnya }}" >
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            {{-- <div class="form-group row">
-                                <label for="profit" class="col-sm-3 ">Ket</label>
-                                <div class="col-sm-9">
-                                    <select name="status" class="form-control">
-                                        {{ $kaskecil->lainnya }}
-                                <option value="" {{ $kaskecil == '' ? "selected" : null;}}>--Pilih--</option>
-                                <option value="Pendapatan Lain-Lain" {{ $kaskecil->lainnya=='Pendapatan Lain-Lain'? "selected": null; }}>Pendapatan Lain-Lain</option>
-                                <option value="Beban Selisih" {{ $kaskecil->lainnya=='Beban Selisih'? "selected": null; }}>Beban Selisih</option>      
-                                    </select><br>
-                                    <div class="input-group">
-                                        <input type="number" class="form-control" name="" id="" value="   {{ $kaskecil->nominal_lainnya }}" >
-                                    </div>
-                                </div>
-                                
-                            </div> --}}
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
 
                 <div class=" modal-footer right-content-between">
-                    <a href="/kaskecil" class="btn btn-default">Batal</a>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <a href="/kaskecil" class="btn btn-primary">Oke</a>
                 </div>
             </form>
         </div>

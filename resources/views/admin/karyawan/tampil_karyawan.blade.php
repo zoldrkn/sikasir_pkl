@@ -75,9 +75,9 @@
                                         <th>No</th>                                       
                                         <th>Nama Karyawan</th>
                                         <th>Divisi</th>               
-                                        @if(Auth::user()->role == 'admin')                    
+                                                      
                                         <th width="14%">Tombol Aksi</th>
-                                        @endif
+                                        
                                     </tr>
                                 </thead>
                                 <tbody>

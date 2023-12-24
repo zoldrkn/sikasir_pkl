@@ -23,7 +23,7 @@ class KeteranganModel extends Model
         'nominal_lainnya',
     ];
 
-    public function transaksi_relasi()
+    public function keterangan_relasi()
     {
         return $this->belongsTo(TransaksiModel::class, 'transaksi_kaskecil_id');
     }
