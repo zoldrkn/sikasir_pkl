@@ -128,7 +128,7 @@
                                             <option value="Beban Selisih">Beban Selisih</option>
                                         </select><br>
                                         <div class="input-group">
-                                            <input type="number" class="form-control" name="lainnya_nominal" id="lainnya_nominal" value="{{ $kaskecil->nominal_lainnya }}" >
+                                            <input type="number" class="form-control" name="nominal_lainnya" id="nominal_lainnya" value="{{ $kaskecil->nominal_lainnya }}" >
                                         </div>
                                     </div>
                                 </div>

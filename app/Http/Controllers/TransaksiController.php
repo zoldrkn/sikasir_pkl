@@ -38,11 +38,21 @@ class TransaksiController extends Controller
     public function store(Request $request)
     {
         
-        
         $kaskecil = TransaksiModel::create($request->all());
-        
-        $keterangan = KeteranganModel::create($request->all());
-       
+
+        $keterangan = KeteranganModel::create([
+            'transaksi_kaskecil_id' => $kaskecil->id,
+            'ket1' => $request->input('ket1'),
+            'ket2' => $request->input('ket2'),
+            'ket3' => $request->input('ket3'),
+            'nominal1' => $request->input('nominal1'),
+            'nominal2' => $request->input('nominal2'),
+            'nominal3' => $request->input('nominal3'),
+            'nominal4' => $request->input('nominal4'),
+            'lainnya' => $request->input('lainnya'),
+            'nominal_lainnya'=> $request->input('nominal_lainnya'),
+        ]);
+               
         // return redirect('/kaskecil');
         return redirect('/kaskecil')->with('success', 'Berhasil Menambahkan Data');
     }
@@ -59,20 +69,21 @@ class TransaksiController extends Controller
         return view('admin.transaksi.detail_kaskecil', compact('karyawan', 'kaskecil'));
     }
 
-    public function edit_kaskecil(Request $request, $id)
+    public function edit_kaskecil(Request $request, $id, $transaksi_kaskecil_id)
     {
 
         $kaskecil = TransaksiModel::findOrFail($id);
-        return view('admin.transaksi.edit_kaskecil', ['kaskecil' => $kaskecil]);
+        $keterangan = KeteranganModel::with('transaksi_relasi')->find($transaksi_kaskecil_id);
+        return view('admin.transaksi.edit_kaskecil', compact('keterangan', 'kaskecil'));
     }
 
     public function update(Request $request, $id)
     {
         $kaskecil = TransaksiModel::findOrFail($id);
-        $keterangan = KeteranganModel::create($request->all());
-
         $kaskecil->update($request->all());
 
+        $keterangan = KeteranganModel::findOrFail($id);
+        $keterangan->update($request->all());
 
         return redirect('/kaskecil')->with('warning', 'Data Berhasil Diubah');
     }

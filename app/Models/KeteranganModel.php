@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class KeteranganModel extends Model
 {
     use HasFactory;
-    protected $table ='keterangan';
+    protected $table = 'keterangan';
     protected $fillable = [
         'ket1',
         'ket2',
@@ -20,11 +20,11 @@ class KeteranganModel extends Model
         'nominal4',
         'lainnya',
         'nominal_lainnya',
+        'transaksi_kaskecil_id'
     ];
 
     public function transaksi_relasi()
     {
-        return $this->hasMany(TransaksiModel::class);
+        return $this->belongsTo(TransaksiModel::class, 'transaksi_kaskecil_id');
     }
-    
 }

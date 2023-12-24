@@ -57,7 +57,7 @@ route::delete('/bank_destroy/{id}', [SetoranController::class, 'destroy_bank']);
 route::get('/kaskecil', [TransaksiController::class, 'tampil_kaskecil']);
 route::get('/kaskecil_tambah', [TransaksiController::class, 'create_kaskecil']);
 route::post('/kaskecil', [TransaksiController::class, 'store']);
-Route::get('/kaskecil_detail/{id}/{karyawan_id}', [TransaksiController::class, 'detail_kaskecil']);
+Route::get('/kaskecil_detail/{id}/{karyawan_id}/{transaksi_kaskecil_id}', [TransaksiController::class, 'detail_kaskecil']);
 route::get('/kaskecil_edit/{id}', [TransaksiController::class, 'edit_kaskecil']);
 route::put('/kaskecil/{id}', [TransaksiController::class, 'update']);
 route::delete('/kaskecil_destroy/{id}', [TransaksiController::class, 'destroy']); //menghapus transaksi tidak menghapus data karyawan
