@@ -13,9 +13,13 @@
                     <div class="card-body">
                 <h4>Edit Transaksi ( {{ $kaskecil->kode_kaskeluar }} // {{ $kaskecil->tanggal_transaksi }} )</h4>
             </div>
-            <form class="form-horizontal" id="editkaskecil" action="/kaskecil/{{ $kaskecil->id }}" method="post">
-                @csrf
-                @method('put')
+            @if ($kaskecil && $kaskecil->transaksi_relasi)
+    <!-- Lakukan sesuatu dengan $kaskecil dan $kaskecil->transaksi_relasi -->
+    <form class="form-horizontal" id="editkaskecil" action="/kaskecil/{{ $kaskecil->id }}/{{ $kaskecil->transaksi_relasi->id }}" method="post">
+        @csrf
+        @method('put')
+    </form>
+    @else
                 <div class="modal-body">
                     <!-- PENGGUNA -->
                     <div class="row">
@@ -56,14 +60,14 @@
                                 <label for="ket1" class="col-sm-3">Lainnya (1)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="ket1" id="ket1" value="{{ $kaskecil->nominal1 }}" >
+                                        <input type="text" class="form-control" name="ket1" id="ket1" value="{{ $kaskecil->transaksi_relasi->ket1 ?? ''  }}" >
                                     </div><br>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="nominal1" id="nominal1" value="{{ $kaskecil->nominal1 }}" >
+                                        <input type="number" class="form-control" name="nominal1" id="nominal1" value="{{ $kaskecil->transaksi_relasi->nominal1 ?? ''  }}" >
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label for="ket2" class="col-sm-3">Lainnya (2)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
@@ -95,7 +99,7 @@
                                         <input type="number" class="form-control" name="nominal4" id="nominal4" value="{{ $kaskecil->nominal4 }}" >
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             {{-- <div class="form-group row">
                                 <label for="" class="col-sm-3">Lainnya (3)</label>
                                 <div class="col-sm-9">
@@ -126,7 +130,8 @@
                                             <option value="">-Pilih-</option>
                                             <option value="Pendapatan Lain-Lain">Pendapatan Lain-Lain</option>
                                             <option value="Beban Selisih">Beban Selisih</option>
-                                        </select><br>
+                                        </select>
+                                    </div><br>
                                         <div class="input-group">
                                             <input type="number" class="form-control" name="nominal_lainnya" id="nominal_lainnya" value="{{ $kaskecil->nominal_lainnya }}" >
                                         </div>
@@ -151,6 +156,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
                 <div class=" modal-footer right-content-between">
                     <a href="/kaskecil" class="btn btn-default">Batal</a>

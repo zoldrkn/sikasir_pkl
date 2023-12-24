@@ -25,7 +25,7 @@
                 @endif
                 <div class="card">
                     <div class="card-body">
-                        @if(Auth::user()->role == 'admin')
+                        
                         <div class="row">
                             <div class="col-12">
                                 <a href="karyawan_tambah" class="btn btn-primary mb-3">
@@ -33,7 +33,7 @@
                                 </a>
                             </div>
                         </div>
-                        @endif
+                        
 
                         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                         <script>
@@ -85,15 +85,14 @@
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
                                         <td>{{ $item->nama_karyawan }}</td>
-                                        <td class="text-center">{{ $item->divisi }}</td>  
-                                        @if(Auth::user()->role == 'admin')                              
+                                        <td class="text-center">{{ $item->divisi }}</td>                           
                                         <td class="text-center">                                        
                                                 <a href="karyawan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
                                             <a data-toggle="modal" href="#delete_karyawan{{ $item->id }}"
                                                 class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></a>
                                                
                                         </td>
-                                        @endif
+                                     
                                     </tr>
                                     @endforeach
                                 </tbody>

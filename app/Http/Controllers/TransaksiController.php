@@ -57,33 +57,38 @@ class TransaksiController extends Controller
         return redirect('/kaskecil')->with('success', 'Berhasil Menambahkan Data');
     }
 
-    public function detail_kaskecil(Request $request, $id, $karyawan_id)
+    public function detail_kaskecil(Request $request, $id, $karyawan_id, $transaksi_kaskecil_id)
     {
 
         $kaskecil = TransaksiModel::findOrFail($id);
         
         $karyawan = TransaksiModel::with('karyawan_relasi')->find($karyawan_id);
       
-        // $keterangan = TransaksiModel::with('keterangan_relasi')->find($keterangan_id);
+        $keterangan = KeteranganModel::with('transaksi_relasi')->find($transaksi_kaskecil_id);
         
-        return view('admin.transaksi.detail_kaskecil', compact('karyawan', 'kaskecil'));
+        return view('admin.transaksi.detail_kaskecil', compact('karyawan', 'kaskecil','keterangan'));
     }
 
     public function edit_kaskecil(Request $request, $id, $transaksi_kaskecil_id)
     {
 
         $kaskecil = TransaksiModel::findOrFail($id);
+        
+       
         $keterangan = KeteranganModel::with('transaksi_relasi')->find($transaksi_kaskecil_id);
+        // $keterangan = KeteranganModel::findOrFail($transaksi_kaskecil_id);
+        
         return view('admin.transaksi.edit_kaskecil', compact('keterangan', 'kaskecil'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, $transaksi_kaskecil_id)
     {
         $kaskecil = TransaksiModel::findOrFail($id);
         $kaskecil->update($request->all());
 
-        $keterangan = KeteranganModel::findOrFail($id);
+        $keterangan = KeteranganModel::findOrFail($transaksi_kaskecil_id);
         $keterangan->update($request->all());
+        
 
         return redirect('/kaskecil')->with('warning', 'Data Berhasil Diubah');
     }

@@ -46,6 +46,6 @@ class TransaksiModel extends Model
 
     public function keterangan_relasi()
     {
-        return $this->hasMany(KeteranganModel::class);
+        return $this->hasMany(KeteranganModel::class, 'transaksi_kaskecil_id');
     }
 }
