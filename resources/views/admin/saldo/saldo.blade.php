@@ -43,43 +43,6 @@
                             <p>Total Saldo</p>
                             <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
                         </div>
-
-                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        <script>
-                            $(document).ready(function($) {
-                                $('table').show();
-                        
-                                $('#mySelector').change(function() {
-                                    var selection = $(this).val();
-                                    var dataset = $('#example1 tbody').find('tr');
-                        
-                                    dataset.show();
-                        
-                                    if (selection !== "") {
-                                        dataset.filter(function(index, item) {
-                                            var timestamp = $(item).find('td:nth-child(3)').text();
-                                            var date = new Date(timestamp);
-                                            var month = date.getMonth() + 1; // January is 0!
-                        
-                                            return month.toString() !== selection;
-                                        }).hide();
-                                    }
-                                });
-                            });
-                        </script>
-
-                        <div class="form-group">
-                            <div class="col-2">
-                                <label for="mySelector">Periode Bulan</label>
-                                <select class="form-control" id="mySelector">
-                                    <option selected value="">SEMUA</option>
-                                    <?php for ($i = 01; $i <= 12; $i++) : ?>
-                                    <option value="<?= $i ?>"><?= $i ?></option>
-                                    <?php endfor ?>
-                                </select>
-                            </div>
-                        </div>
-                        
                         
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped table-sm table-hover" width="100%">

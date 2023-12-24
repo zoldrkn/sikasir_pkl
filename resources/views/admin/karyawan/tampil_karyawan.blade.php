@@ -33,40 +33,6 @@
                                 </a>
                             </div>
                         </div>
-                        
-
-                        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                        <script>
-                            $(document).ready(function($) {
-                                $('table').show();
-                        
-                                $('#mySelector').change(function() {
-                                    var selection = $(this).val();
-                                    var dataset = $('#example1 tbody').find('tr');
-                        
-                                    dataset.show();
-                        
-                                    if (selection !== "") {
-                                        dataset.filter(function(index, item) {
-                                            var divisi = $(item).find('td:nth-child(4)').text(); // Ubah angka sesuai dengan posisi kolom divisi
-                                            return divisi.trim() !== selection;
-                                        }).hide();
-                                    }
-                                });
-                            });
-                        </script>
-
-                        <div class="form-group">
-                            <div class="col-2">
-                                <label for="mySelector">Divisi</label>
-                                <select class="form-control" id="mySelector">
-                                    <option selected value="">Semua Divisi</option>
-                                    @foreach ($karyawan as $no => $item)
-                                    <option value="{{ $item->divisi }}">{{ $item->divisi }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
 
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
