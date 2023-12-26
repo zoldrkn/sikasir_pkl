@@ -29,11 +29,11 @@
                                 </div>
                                
                             </div>
-                            @error('kode_kaskeluar')
-                            <div class="alert alert-danger">
-                                {{ $message }}
-                            </div>
-                        @enderror
+                             @error('kode_kaskeluar')
+                                <div class="alert alert-danger">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                            
                            
                             <div class="form-group row">
