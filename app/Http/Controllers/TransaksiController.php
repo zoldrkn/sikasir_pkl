@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
 use App\Models\KaryawanModel;
 use App\Models\TransaksiModel;
 use App\Models\PenjualanModel;
@@ -37,9 +38,37 @@ class TransaksiController extends Controller
 
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'kode_kaskeluar' => 'required|unique:transaksi_kaskecil,kode_kaskeluar',
+            // Aturan validasi lainnya
+        ], [
+            'kode_kaskeluar.unique' => 'Kode sudah digunakan. Silahkan gunakan kode yang berbeda.',
+            // Pesan khusus untuk validasi unique
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('kaskecil_tambah')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
+        
+        // $validator = Validator::make($request->all(), TransaksiModel::rules());
+
+        // if ($validator->fails()) {
+        //     return redirect('kaskecil_tambah')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }
+
+        // // Kode selanjutnya jika validasi berhasil
+        // TransaksiModel::create([
+        //     'kode_kaskeluar' => $request->input('kode_kaskeluar'),
+        //     // Data lainnya
+        // ]);
         
         $kaskecil = TransaksiModel::create($request->all());
 
+        
         $keterangan = KeteranganModel::create([
             'transaksi_kaskecil_id' => $kaskecil->id,
             'ket1' => $request->input('ket1'),

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Validation\Rule;
 
 class TransaksiModel extends Model
 {
@@ -48,4 +49,16 @@ class TransaksiModel extends Model
     {
         return $this->hasOne(KeteranganModel::class, 'transaksi_kaskecil_id');
     }
+
+    public static function rules($id = null)
+    {
+        return [
+            'kode_kaskeluar' => [
+                'required',
+                Rule::unique('transaksi_kaskecil', 'kode_kaskeluar')->ignore($id),
+            ],
+            // Aturan validasi lainnya
+        ];
+    }
+
 }

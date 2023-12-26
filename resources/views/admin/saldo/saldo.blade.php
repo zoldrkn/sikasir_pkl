@@ -33,17 +33,12 @@
                                     <i class="far fa-plus"></i> Tambah Saldo
                                 </a>@endif
                                 <div id="menuDataTable" class="float-right"></div>
-                            </div>
-                        </div>
-                        
-                        
-
-
-                        <div class="float-right">
-                            <p>Total Saldo</p>
-                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
-                        </div>
-                        
+                                <div class="float-right">
+                                    <p>Total Saldo</p>
+                                    <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
+                                </div>
+                            </div>   
+                        </div>    
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped table-sm table-hover" width="100%">
                                 <thead>

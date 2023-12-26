@@ -16,7 +16,7 @@
             <form class="form-horizontal" id="editkaskecil" action="/kaskecil/{{ $kaskecil->id }}" method="post">
                 @csrf
                 @method('put')
-                <div class="modal-body">
+                <div class="modal-body">   
                     <!-- PENGGUNA -->
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
@@ -66,20 +66,21 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket1" class="col-sm-3">Lainnya (1)</label>
+                                <label for="ket1" class="col-sm-3">Nota (1)</label>
                                 <div class="col-sm-9">
                                     <div>                                               
                                         <p>{{ $kaskecil->transaksi_relasi->ket1}}                            
                                         </p>
                                     </div><br>
                                     <div>                                               
-                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal1}}                           
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->transaksi_relasi->nominal1, 0, ',', '.') }},00                          
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket2" class="col-sm-3">Lainnya (2)</label>
+                                <label for="ket2" class="col-sm-3">Nota (2)</label>
                                 <div class="col-sm-9">
                                     <div>                                               
                                         <p>{{ $kaskecil->transaksi_relasi->ket2}}                            
@@ -92,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket3" class="col-sm-3">Lainnya (3)</label>
+                                <label for="ket3" class="col-sm-3">Nota (3)</label>
                                 <div class="col-sm-9">
                                     <div>                                               
                                         <p>{{ $kaskecil->transaksi_relasi->ket3}}                            
@@ -105,7 +106,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket4" class="col-sm-3">Lainnya (4)</label>
+                                <label for="ket4" class="col-sm-3">Nota (4)</label>
                                 <div class="col-sm-9">
                                     <div>                                               
                                         <p>{{ $kaskecil->transaksi_relasi->ket4}}                            

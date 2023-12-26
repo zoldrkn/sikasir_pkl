@@ -90,6 +90,11 @@
                                         <th>Keterangan</th>
                                         <th>Debit</th>
                                         <th>Kredit</th>
+                                        <th>Nota 1</th>
+                                        <th>Nota 2</th>
+                                        <th>Nota 3</th>
+                                        <th>Nota 4</th>
+                                        <th>Lainnya</th>
                                         @if(Auth::user()->role == 'kasir')
                                         <th width="14%">Tombol Aksi</th>
                                         @endif
@@ -105,6 +110,11 @@
                                         <td>{{ $item->keterangan_transaksi }}</td>
                                         <td>Rp. {{ number_format($item->jumlah_masuk, 0, ',', '.') }},00</td>
                                         <td>Rp. {{ number_format($item->jumlah_keluar, 0, ',', '.') }},00</td>
+                                        <td>{{ $item->transaksi_relasi->ket1 }} <p> Rp. {{ number_format($item->transaksi_relasi->nominal1, 0, ',', '.') }},00</p></td>
+                                        <td>{{ $item->transaksi_relasi->ket2 }} <p> Rp. {{ number_format($item->transaksi_relasi->nominal2, 0, ',', '.') }},00</p></td>
+                                        <td>{{ $item->transaksi_relasi->ket3 }} <p> Rp. {{ number_format($item->transaksi_relasi->nominal3, 0, ',', '.') }},00</p></td>
+                                        <td>{{ $item->transaksi_relasi->ket4 }} <p> Rp. {{ number_format($item->transaksi_relasi->nominal4, 0, ',', '.') }},00</p></td>
+                                        <td>{{ $item->transaksi_relasi->lainnya }} <p> Rp. {{ number_format($item->transaksi_relasi->nominal_lainnya, 0, ',', '.') }},00</p></td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                             <a href="kaskecil_detail/{{ $item->id }}/{{ $item->karyawan_id }}/{{ $item->transaksi_relasi->id }}"

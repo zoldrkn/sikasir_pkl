@@ -22,10 +22,20 @@
                                 <label for="kode_kaskeluar" class="col-sm-3">KK</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="kode_kaskeluar" id="kode_kaskeluar" required>
+                                        <input type="text" class="form-control" name="kode_kaskeluar" id="kode_kaskeluar" value="{{ old('kode_kaskeluar') }}" required>
+                                     <!-- Menampilkan pesan kesalahan validasi -->
+   
                                     </div>
                                 </div>
+                               
                             </div>
+                            @error('kode_kaskeluar')
+                            <div class="alert alert-danger">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                           
+                           
                             <div class="form-group row">
                                 <label for="tanggal_transaksi" class="col-sm-3">Tanggal</label>
                                 <div class="col-sm-9">
@@ -88,7 +98,6 @@
 </div>
     </div>
 </section>
-    
 
 <!-- /.modal -->
 @endsection

@@ -51,14 +51,15 @@
                                 <a href="penjualan_tambah" class="btn btn-primary mb-3">
                                     <i class="far fa-plus"></i> Tambah Setoran Penjualan
                                 </a>
+                                <div class="float-right">
+                                    <p>Total Saldo</p>
+                                    <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
+                                </div>
                             </div>
                         </div>
                         @endif
 
-                        <div class="float-right">
-                            <p>Total Saldo</p>
-                            <h2>Rp. {{  number_format($saldoAkhir, 0, ',', '.')  }},00</h2>
-                        </div>
+                       
 
                         {{-- @if(session::has('status'))
                         <div class="alert alert-success" role="alert">
@@ -66,7 +67,7 @@
                         </div>
                         @endif --}}
 
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <div class="col-2">
                                 <label for="mySelector">Periode/Bln</label>
                                 <select class="form-control" id="mySelector">
@@ -76,7 +77,7 @@
                                     <?php endfor ?>
                                 </select>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="table-responsive">
                             <table id="example1" class="table table-bordered table-striped">
@@ -99,7 +100,7 @@
                                         <td>{{ $item->tanggal_penjualan }}</td>
                                         <td>{{ $item->keterangan }}</td>
                                         <td>{{ $item->pembayaran }}</td>
-                                        <td>{{ $item->setoran_penjualan }}</td>
+                                        <td>Rp. {{  number_format($item->setoran_penjualan, 0, ',', '.')  }},00</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                                 <a href="penjualan_edit/{{ $item->id }}" class="btn bg-primary btn-sm"><i class="fas fa-edit"></i></a>
