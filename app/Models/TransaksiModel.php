@@ -49,7 +49,7 @@ class TransaksiModel extends Model
     {
         return $this->hasOne(KeteranganModel::class, 'transaksi_kaskecil_id');
     }
-
+    
     public static function rules($id = null)
     {
         return [

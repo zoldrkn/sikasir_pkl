@@ -24,7 +24,6 @@
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="kode_kaskeluar" id="kode_kaskeluar" value="{{ old('kode_kaskeluar') }}" required>
                                      <!-- Menampilkan pesan kesalahan validasi -->
-   
                                     </div>
                                 </div>
                                

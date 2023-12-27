@@ -27,4 +27,5 @@ class KeteranganModel extends Model
     {
         return $this->belongsTo(TransaksiModel::class, 'transaksi_kaskecil_id');
     }
+   
 }

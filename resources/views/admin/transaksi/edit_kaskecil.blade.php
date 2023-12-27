@@ -13,13 +13,14 @@
                     <div class="card-body">
                 <h4>Edit Transaksi ( {{ $kaskecil->kode_kaskeluar }} // {{ $kaskecil->tanggal_transaksi }} )</h4>
             </div>
-           
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Lakukan sesuatu dengan $kaskecil dan $kaskecil->transaksi_relasi -->
     <form class="form-horizontal" id="editkaskecil" action="/kaskecil/{{ $kaskecil->id }}/{{ $kaskecil->transaksi_relasi->id  }}" method="post">
         @csrf
         @method('put')
  
                 <div class="modal-body">
+                  
                     <!-- PENGGUNA -->
                     <div class="row">
                         <div class="offset-sm-1 col-sm-10">
@@ -51,7 +52,9 @@
                                 <label for="jumlah_masuk" class="col-sm-3">Jumlah Kembali</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
-                                        <input type="number" class="form-control" name="jumlah_masuk" id="jumlah_masuk" value="{{ $kaskecil->jumlah_masuk }}" >
+                                        {{-- <input type="number" class="form-control" name="jumlah_masuk" id="jumlah_masuk" value="{{ $kaskecil->jumlah_masuk }}" > --}}
+                                        <input type="number" class="form-control" name="jumlah_masuk" id="jumlah_masuk" value="0">
+
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +125,25 @@
                     </div>
                 </div>
          
+                <script>
+                    $(document).ready(function() {
+                        // Ketika nilai pada input nominal1 atau nominal2 berubah
+                        $('#nominal1, #nominal2, #nominal3, #nominal4, #jumlah_keluar').on('input', function() {
+                            // Ambil nilai dari kedua input
+                            var nominal1 = parseFloat($('#nominal1').val()) || 0;
+                            var nominal2 = parseFloat($('#nominal2').val()) || 0;
+                            var nominal3 = parseFloat($('#nominal3').val()) || 0;
+                            var nominal4 = parseFloat($('#nominal4').val()) || 0;
+                            var jumlah_keluar = parseFloat($('#jumlah_keluar').val()) || 0;
+                
+                            // Hitung total
+                            var jumlah_masuk = jumlah_keluar - (nominal1 + nominal2 + nominal3 + nominal4);
+                         
+                            // Update nilai pada input total
+                            $('#jumlah_masuk').val(jumlah_masuk);
+                        });
+                    });
+                </script>
 
                 <div class=" modal-footer right-content-between">
                     <a href="/kaskecil" class="btn btn-default">Batal</a>

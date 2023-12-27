@@ -56,7 +56,17 @@ route::delete('/bank_destroy/{id}', [SetoranController::class, 'destroy_bank']);
 //COBA TRANSAKSI "DONE"
 route::get('/kaskecil', [TransaksiController::class, 'tampil_kaskecil']);
 route::get('/kaskecil_tambah', [TransaksiController::class, 'create_kaskecil']);
-route::post('/kaskecil', [TransaksiController::class, 'store']);
+// web.php
+
+// Menangani validasi data yang sudah ada sebelum menyimpan data baru
+Route::post('/path/to/check/existing/data', [TransaksiController::class, 'checkExistingData']);
+
+// Menangani penyimpanan data baru
+Route::post('/kaskecil', [TransaksiController::class, 'store']);
+
+// Contoh di dalam file web.php
+
+
 Route::get('/kaskecil_detail/{id}/{karyawan_id}/{keterangan_relasi}', [TransaksiController::class, 'detail_kaskecil']);
 route::get('/kaskecil_edit/{id}/{transaksi_kaskecil_id}', [TransaksiController::class, 'edit_kaskecil']);
 route::put('/kaskecil/{id}/{transaksi_kaskecil_id}', [TransaksiController::class, 'update']);

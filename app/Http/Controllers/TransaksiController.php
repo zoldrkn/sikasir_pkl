@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 use App\Models\KaryawanModel;
 use App\Models\TransaksiModel;
 use App\Models\PenjualanModel;
@@ -35,9 +36,10 @@ class TransaksiController extends Controller
         $karyawan = KaryawanModel::all();
         return view('admin.transaksi.tambah_kaskecil', compact('karyawan'));
     }
-
+    
     public function store(Request $request)
     {
+
         $validator = Validator::make($request->all(), [
             'kode_kaskeluar' => 'required|unique:transaksi_kaskecil,kode_kaskeluar',
             // Aturan validasi lainnya
@@ -51,20 +53,6 @@ class TransaksiController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }
-        
-        // $validator = Validator::make($request->all(), TransaksiModel::rules());
-
-        // if ($validator->fails()) {
-        //     return redirect('kaskecil_tambah')
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }
-
-        // // Kode selanjutnya jika validasi berhasil
-        // TransaksiModel::create([
-        //     'kode_kaskeluar' => $request->input('kode_kaskeluar'),
-        //     // Data lainnya
-        // ]);
         
         $kaskecil = TransaksiModel::create($request->all());
 
@@ -85,7 +73,7 @@ class TransaksiController extends Controller
         // return redirect('/kaskecil');
         return redirect('/kaskecil')->with('success', 'Berhasil Menambahkan Data');
     }
-
+    
     public function detail_kaskecil(Request $request, $id, $karyawan_id, $transaksi_kaskecil_id)
     {
 
@@ -104,7 +92,7 @@ class TransaksiController extends Controller
         $kaskecil = TransaksiModel::findOrFail($id);
            
         $keterangan = KeteranganModel::with('keterangan_relasi')->find($transaksi_kaskecil_id);
-        // $keterangan = KeteranganModel::findOrFail($transaksi_kaskecil_id);
+        
         
         return view('admin.transaksi.edit_kaskecil', compact('keterangan', 'kaskecil'));
     }
@@ -125,6 +113,7 @@ class TransaksiController extends Controller
     {
         //$deleteSaldo = DB::table('saldo')->where('id', $id)->delete();
         $deletedKaskecil = TransaksiModel::findOrFail($id);
+        $deletedKaskecil->transaksi_relasi()->delete();
         $deletedKaskecil->delete();
 
         return redirect('/kaskecil')->with('danger', 'Data Berhasil Dihapus');
