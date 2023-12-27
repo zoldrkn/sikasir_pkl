@@ -15,7 +15,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <a href="bank_tambah" class="btn btn-primary mb-3">
-                                    <i class="far fa-plus"></i> Tambah Setoran Bank Depo
+                                    <i class="far fa-plus"></i> Tambah Setoran
                                 </a>
                                 <div class="float-right">
                                     <p>Total Saldo</p>

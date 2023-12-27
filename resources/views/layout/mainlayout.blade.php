@@ -114,7 +114,7 @@
                                 <li class="nav-item">
                                     <a href="{{ url('/setoran_penjualan') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Setoran Penjualan/Bln</p>
+                                        <p>Setoran Penjualan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -130,7 +130,7 @@
                         <li class="nav-item">
                             <a href="{{ url('/saldo') }}" class="nav-link">
                                 <i class="nav-icon fas fa-money-bill"></i>
-                                <p>Saldo Kas Kecil</p>
+                                <p>Saldo</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -333,12 +333,12 @@ $(function() {
 // input tanggal menggunakan plugin inputmask dan datetimepicker
 $(document).ready(function() {
     // Mask tanggal
-    $('.tgl').mask('00-00-0000', {
+    $('.tanggal').mask('00-00-0000', {
         placeholder: "dd-mm-yyyy"
     });
 
     //Date picker
-    $('.tgl_picker').datetimepicker({
+    $('.tamggal _picker').datetimepicker({
         format: 'DD-MM-YYYY',
         useCurrent: false
     });
