@@ -145,16 +145,17 @@
                 <script>
                     $(document).ready(function() {
                         // Ketika nilai pada input nominal1 atau nominal2 berubah
-                        $('#nominal1, #nominal2, #nominal3, #nominal4, #jumlah_keluar').on('input', function() {
+                        $('#nominal1, #nominal2, #nominal3, #nominal4, #jumlah_keluar , #pendapatan_lain').on('input', function() {
                             // Ambil nilai dari kedua input
                             var nominal1 = parseFloat($('#nominal1').val()) || 0;
                             var nominal2 = parseFloat($('#nominal2').val()) || 0;
                             var nominal3 = parseFloat($('#nominal3').val()) || 0;
                             var nominal4 = parseFloat($('#nominal4').val()) || 0;
                             var jumlah_keluar = parseFloat($('#jumlah_keluar').val()) || 0;
+                            var pendapatan_lain = parseFloat($('#pendapatan_lain').val()) || 0;
                 
                             // Hitung total
-                            var jumlah_masuk = jumlah_keluar - (nominal1 + nominal2 + nominal3 + nominal4);
+                            var jumlah_masuk = jumlah_keluar - (nominal1 + nominal2 + nominal3 + nominal4 - pendapatan_lain);
                          
                             // Update nilai pada input total
                             $('#jumlah_masuk').val(jumlah_masuk);
