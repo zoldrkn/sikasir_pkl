@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PenjualanModel;
 use App\Models\BankModel;
-use App\Models\TransaksiModel;
 use App\Models\SaldoModel;
 use Illuminate\Http\Request;
+use App\Models\PenjualanModel;
+use App\Models\TransaksiModel;
+use App\Models\KeteranganModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,8 +21,10 @@ class SetoranController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
+        $totalPendapatan = KeteranganModel::getPendapatan();
+        $totalBeban = KeteranganModel::getBeban();
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + ($totalMasuk) + ($totalPenjualan) - ($totalSetoran);
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) - $totalPendapatan + $totalBeban;
 
         $filterBulan = PenjualanModel::filterBulan();
         return view('admin.penjualan.tampil_penjualan', compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([
@@ -71,8 +74,10 @@ class SetoranController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
+        $totalPendapatan = KeteranganModel::getPendapatan();
+        $totalBeban = KeteranganModel::getBeban();
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + ($totalMasuk) + ($totalPenjualan) - ($totalSetoran);
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) - $totalPendapatan + $totalBeban;
 
         $filterBulan = BankModel::filterBulan();
         return view('admin.bank.tampil_bank', compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([

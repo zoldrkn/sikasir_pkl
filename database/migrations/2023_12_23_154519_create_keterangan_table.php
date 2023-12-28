@@ -21,8 +21,8 @@ return new class extends Migration
             $table->decimal('nominal2', 15,2)->nullable();
             $table->decimal('nominal3', 15,2)->nullable();
             $table->decimal('nominal4', 15,2)->nullable();
-            $table->enum('lainnya', ['Pendapatan Lain-Lain', 'Beban Selisih'])->nullable();
-            $table->decimal('nominal_lainnya', 15,2)->nullable();
+            $table->decimal('pendapatan_lain', 15,2)->nullable();
+            $table->decimal('beban_selisih', 15,2)->nullable();
             $table->timestamps();
         });
     }

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SaldoModel;
-use App\Models\TransaksiModel;
-use App\Models\PenjualanModel;
 use App\Models\BankModel;
+use App\Models\SaldoModel;
 use Illuminate\Http\Request;
+use App\Models\PenjualanModel;
+use App\Models\TransaksiModel;
+use App\Models\KeteranganModel;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +26,10 @@ class SaldoController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
-        
+        $totalPendapatan = KeteranganModel::getPendapatan();
+        $totalBeban = KeteranganModel::getBeban();
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + ($totalMasuk) + ($totalPenjualan) - ($totalSetoran);
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) - $totalPendapatan + $totalBeban;
         
         return view('admin.saldo.saldo', ['saldoAkhir' => $saldoAkhir])->with([
             'saldo' => SaldoModel::all(),

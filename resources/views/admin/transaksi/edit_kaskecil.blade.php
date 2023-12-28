@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket1" class="col-sm-3">Lainnya (1)</label>
+                                <label for="ket1" class="col-sm-3">Nota (1)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="ket1" id="ket1" value="{{ $kaskecil->transaksi_relasi->ket1 ?? ''  }}" >
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket2" class="col-sm-3">Lainnya (2)</label>
+                                <label for="ket2" class="col-sm-3">Nota (2)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="ket2" id="ket2" value="{{ $kaskecil->transaksi_relasi->ket2 ?? ''  }}" >
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket3" class="col-sm-3">Lainnya (3)</label>
+                                <label for="ket3" class="col-sm-3">Nota (3)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="ket3" id="ket3" value="{{ $kaskecil->transaksi_relasi->ket3 ?? ''  }}" >
@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="ket2" class="col-sm-3">Lainnya (4)</label>
+                                <label for="ket2" class="col-sm-3">Nota (4)</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
                                         <input type="text" class="form-control" name="ket4" id="ket4" value="{{ $kaskecil->transaksi_relasi->ket4 ?? ''  }}" >
@@ -103,6 +103,23 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="pendapatan_lain" class="col-sm-3">Pendapatan Lain-Lain</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="pendapatan_lain" id="pendapatan_lain" value="{{ $kaskecil->transaksi_relasi->pendapatan_lain ?? ''  }}" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="beban_selisih" class="col-sm-3">Beban Selisih</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" name="beban_selisih" id="beban_selisih" value="{{ $kaskecil->transaksi_relasi->beban_selisih ?? ''  }}" >
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- <div class="form-group row">
                                 <label class="col-sm-3">Ket</label>
                                 <div class="col-sm-9">
                                     <div class="input-group">
@@ -120,7 +137,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>

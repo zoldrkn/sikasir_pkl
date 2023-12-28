@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->date('tanggal_setoran');
             $table->text('keterangan');
-            $table->enum('pembayaran', ['cash', 'kredit']);
             $table->decimal('setoran_bank', 15,2);
             $table->timestamps();
         });

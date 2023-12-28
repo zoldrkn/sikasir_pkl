@@ -19,13 +19,23 @@ class KeteranganModel extends Model
         'nominal2',
         'nominal3',
         'nominal4',
-        'lainnya',
-        'nominal_lainnya',
+        'pendapatan_lain',
+        'beban_selisih',
     ];
 
     public function keterangan_relasi()
     {
         return $this->belongsTo(TransaksiModel::class, 'transaksi_kaskecil_id');
+    }
+
+    public static function getPendapatan()
+    {
+        return self::sum('pendapatan_lain');
+    }
+
+    public static function getBeban()
+    {
+        return self::sum('beban_selisih');
     }
    
 }
