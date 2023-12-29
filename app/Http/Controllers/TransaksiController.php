@@ -22,9 +22,9 @@ class TransaksiController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
-        $totalBeban = KeteranganModel::getBeban();
+      
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) + $totalBeban;
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran);
 
         $filterBulan = TransaksiModel::filterBulan();
         return view('admin.transaksi.tampil_kaskecil', compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([

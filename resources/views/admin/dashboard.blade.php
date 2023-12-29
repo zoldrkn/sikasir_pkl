@@ -14,7 +14,7 @@
               <div class="info-box-content">
                   <span class="info-box-text">Pengeluaran</span>
                   {{-- <span class="info-box-number">Rp. {{ $totalKeluar }}</span> --}}
-                  <span class="info-box-number">Rp. {{  number_format($totalKeluar, 0, ',', '.')  }},00</span>
+                  <span class="info-box-number">Rp. {{  number_format($pengeluaran, 0, ',', '.')  }},00</span>
               </div>
               <!-- /.info-box-content -->
           </div>

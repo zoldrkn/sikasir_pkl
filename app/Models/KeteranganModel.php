@@ -21,16 +21,12 @@ class KeteranganModel extends Model
         'nominal4',
         'pendapatan_lain',
         'beban_selisih',
+        'total_nota',
     ];
 
     public function keterangan_relasi()
     {
         return $this->belongsTo(TransaksiModel::class, 'transaksi_kaskecil_id');
-    }
-
-    public static function getPendapatan()
-    {
-        return self::sum('pendapatan_lain');
     }
 
     public static function getBeban()

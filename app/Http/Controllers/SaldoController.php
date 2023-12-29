@@ -26,9 +26,10 @@ class SaldoController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
-        $totalBeban = KeteranganModel::getBeban();
+      
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) + $totalBeban;
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran);
+
 
         
         return view('admin.saldo.saldo', ['saldoAkhir' => $saldoAkhir])->with([
@@ -52,8 +53,6 @@ class SaldoController extends Controller
         ]);
 
         $saldoBaru->save();
-
-
         return redirect('/saldo')->with('success', 'Berhasil Menambahkan Data');
     }
 

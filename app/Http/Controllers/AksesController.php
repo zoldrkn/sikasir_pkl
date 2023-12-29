@@ -18,11 +18,12 @@ class AksesController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
-        $totalBeban = KeteranganModel::getBeban();
+      
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) + $totalBeban;
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran);
+        $pengeluaran = $totalKeluar -  $totalMasuk;
 
-        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
+        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'pengeluaran' => $pengeluaran, 'totalMasuk' => $totalMasuk]);
     }
     
     function admin()
@@ -32,11 +33,13 @@ class AksesController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
-        $totalBeban = KeteranganModel::getBeban();
+      
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) + $totalBeban;
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran);
+        $pengeluaran = $totalKeluar -  $totalMasuk;
 
-        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
+
+        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'pengeluaran' => $pengeluaran, 'totalMasuk' => $totalMasuk]);
     }
     function kasir()
     {
@@ -45,10 +48,12 @@ class AksesController extends Controller
         $totalMasuk = TransaksiModel::getTotalMasuk();
         $totalPenjualan = PenjualanModel::getTotalPenjualan();
         $totalSetoran = BankModel::getTotalSetoran();
-        $totalBeban = KeteranganModel::getBeban();
+      
         // Menghitung saldo setelah dikurangi jumlah keluar
-        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran) + $totalBeban;
+        $saldoAkhir = ($totalSaldo - $totalKeluar) + $totalMasuk + ($totalPenjualan) - ($totalSetoran);
+        $pengeluaran = $totalKeluar -  $totalMasuk;
 
-        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'totalKeluar' => $totalKeluar, 'totalMasuk' => $totalMasuk]);
+
+        return view('admin.dashboard', ['saldoAkhir' => $saldoAkhir, 'pengeluaran' => $pengeluaran, 'totalMasuk' => $totalMasuk]);
     }
 }

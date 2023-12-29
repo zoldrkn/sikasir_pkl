@@ -96,6 +96,7 @@
                                         <th>Nota 4</th>
                                         <th>Pendapatan Lain-Lain</th>
                                         <th>Beban Selisih</th>
+                                        <th>Total Nota</th>
                                         @if(Auth::user()->role == 'kasir')
                                         <th width="14%">Tombol Aksi</th>
                                         @endif
@@ -117,6 +118,7 @@
                                         <td>{{ $item->transaksi_relasi->ket4 }} <p> Rp. {{ number_format($item->transaksi_relasi->nominal4, 0, ',', '.') }},00</p></td>
                                         <td>Rp. {{ number_format($item->transaksi_relasi->pendapatan_lain, 0, ',', '.') }},00</td>
                                         <td>Rp. {{ number_format($item->transaksi_relasi->beban_selisih, 0, ',', '.') }},00</td>
+                                        <td>Rp. {{ number_format($item->transaksi_relasi->total_nota, 0, ',', '.') }},00</td>
                                         @if(Auth::user()->role == 'kasir')
                                         <td class="text-center">
                                             <a href="kaskecil_detail/{{ $item->id }}/{{ $item->karyawan_id }}/{{ $item->transaksi_relasi->id }}"
