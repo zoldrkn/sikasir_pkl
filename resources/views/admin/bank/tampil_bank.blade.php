@@ -9,6 +9,21 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
+                @if(session('warning'))
+                <div class="alert alert-warning">
+                    {{ session('warning') }}
+                </div>
+                @endif
+                @if(session('danger'))
+                <div class="alert alert-danger">
+                    {{ session('danger') }}
+                </div>
+                @endif
                 <div class="card">
                     <div class="card-body">
                         @if(Auth::user()->role == 'kasir')

@@ -40,7 +40,7 @@ class SetoranController extends Controller
     public function store_penjualan(Request $request)
     {
         $penjualan = PenjualanModel::create($request->all());
-        return redirect('/setoran_penjualan');
+        return redirect('/setoran_penjualan')->with('success', 'Berhasil Menambahkan Data');
     }
 
     public function edit_penjualan(Request $request, $id)
@@ -53,7 +53,7 @@ class SetoranController extends Controller
     {
         $penjualan = PenjualanModel::findOrFail($id);
         $penjualan->update($request->all());
-        return redirect('/setoran_penjualan');
+        return redirect('/setoran_penjualan')->with('warning', 'Data Berhasil Diubah');
     }
 
     public function destroy_penjualan($id)
@@ -93,7 +93,7 @@ class SetoranController extends Controller
     public function store_bank(Request $request)
     {
         $bank = BankModel::create($request->all());
-        return redirect('/setoran_bank');
+        return redirect('/setoran_bank')->with('success', 'Berhasil Menambahkan Data');
     }
 
     public function edit_bank(Request $request, $id)
@@ -106,7 +106,7 @@ class SetoranController extends Controller
     {
         $bank = BankModel::findOrFail($id);
         $bank->update($request->all());
-        return redirect('/setoran_bank');
+        return redirect('/setoran_bank')->with('warning', 'Data Berhasil Diubah');
     }
 
     public function destroy_bank($id)
@@ -115,6 +115,6 @@ class SetoranController extends Controller
         $deletedBank = BankModel::findOrFail($id);
         $deletedBank->delete();
 
-        return redirect('/setoran_bank');
+        return redirect('/setoran_bank')->with('danger', 'Data Berhasil Dihapus');
     }
 }
