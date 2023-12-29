@@ -42,7 +42,8 @@
                                 <label for="jumlah_keluar" class="col-sm-3">Jumlah Kas Keluar</label>
                                 <div class="col-sm-9">
                                     <div>                                               
-                                        <p>Rp. {{ $kaskecil->jumlah_keluar }}                             
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->jumlah_keluar, 0, ',', '.') }},00                                                     
                                         </p>
                                     </div>
                                 </div>
@@ -60,7 +61,8 @@
                                 <label for="jumlah_masuk" class="col-sm-3">Jumlah Kembali</label>
                                 <div class="col-sm-9">
                                     <div>                                               
-                                        <p>Rp. {{ $kaskecil->jumlah_masuk }}                             
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->jumlah_masuk, 0, ',', '.') }},00                                                    
                                         </p>
                                     </div>
                                 </div>
@@ -87,8 +89,8 @@
                                         </p>
                                     </div><br>
                                     <div>                                               
-                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal2}}                           
-                                        </p>
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->transaksi_relasi->nominal2, 0, ',', '.') }},00                          
                                     </div>
                                 </div>
                             </div>
@@ -96,11 +98,13 @@
                                 <label for="ket3" class="col-sm-3">Nota (3)</label>
                                 <div class="col-sm-9">
                                     <div>                                               
-                                        <p>{{ $kaskecil->transaksi_relasi->ket3}}                            
+                                        <p>
+                                            {{ $kaskecil->transaksi_relasi->ket3}}                            
                                         </p>
                                     </div><br>
                                     <div>                                               
-                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal3}}                           
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->transaksi_relasi->nominal3, 0, ',', '.') }},00                                                   
                                         </p>
                                     </div>
                                 </div>
@@ -113,20 +117,51 @@
                                         </p>
                                     </div><br>
                                     <div>                                               
-                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal4}}                           
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->transaksi_relasi->nominal4, 0, ',', '.') }},00                                               
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="form-group row">
+                                <label for="pendapatan_lain" class="col-sm-3">Ket</label>
+                                <div class="col-sm-9">
+                                    <div>                                               
+                                        <p>{{ $kaskecil->transaksi_relasi->pendapatan_lain}}                            
+                                        </p>
+                                    </div><br>
+                                    <div>                                               
+                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal_lainnya}}                           
+                                        </p>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="form-group row">
+                                <label for="pendapatan_lain" class="col-sm-3">Pendapatan Lain-Lain</label>
+                                <div class="col-sm-9">
+                                    <div>                                               
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->transaksi_relasi->pendapatan_lain, 0, ',', '.') }},00                          
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="lainnya" class="col-sm-3">Ket</label>
+                                <label for="beban_selisih" class="col-sm-3">Beban Selisih</label>
                                 <div class="col-sm-9">
                                     <div>                                               
-                                        <p>{{ $kaskecil->transaksi_relasi->lainnya}}                            
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->transaksi_relasi->beban_selisih, 0, ',', '.') }},00                          
                                         </p>
-                                    </div><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="total_nota" class="col-sm-3">Total Nota</label>
+                                <div class="col-sm-9">
                                     <div>                                               
-                                        <p>Rp. {{ $kaskecil->transaksi_relasi->nominal_lainnya}}                           
+                                        <p>
+                                            Rp. {{ number_format($kaskecil->transaksi_relasi->total_nota, 0, ',', '.') }},00                          
                                         </p>
                                     </div>
                                 </div>
