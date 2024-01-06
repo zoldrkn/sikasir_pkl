@@ -78,7 +78,7 @@
                                     @foreach ($bank as $no => $item)
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
-                                        <td>{{ $item->tanggal_setoran }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($item->tanggal_setoran)) }}</td>
                                         <td>{{ $item->keterangan }}</td>
                                         <td>
                                             Rp. {{  number_format($item->setoran_bank, 0, ',', '.')  }},00</td>

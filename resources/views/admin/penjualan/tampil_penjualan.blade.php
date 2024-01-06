@@ -112,7 +112,7 @@
                                     @foreach ($penjualan as $no => $item)
                                     <tr>
                                         <td class="text-center">{{ $no+1 }}</td>
-                                        <td>{{ $item->tanggal_penjualan }}</td>
+                                        <td>{{ date('d-M-Y', strtotime($item->tanggal_penjualan)) }}</td>
                                         <td>{{ $item->keterangan }}</td>
                                         <td>{{ $item->pembayaran }}</td>
                                         <td>Rp. {{  number_format($item->setoran_penjualan, 0, ',', '.')  }},00</td>
