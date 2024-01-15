@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class SetoranController extends Controller
 {
     //>>> Penjualan function
-    function tampil_penjualan()
+    function tampil_penjualan(Request $request)
     {
         $totalSaldo = SaldoModel::getTotalSaldo();
         $totalKeluar = TransaksiModel::getTotalKeluar();
@@ -30,7 +30,10 @@ class SetoranController extends Controller
         return view('admin.penjualan.tampil_penjualan', compact('filterBulan'), ['saldoAkhir' => $saldoAkhir])->with([
             'penjualan' => PenjualanModel::all(),
         ]);
+
     }
+
+
 
     function create_penjualan()
     {
@@ -117,4 +120,6 @@ class SetoranController extends Controller
 
         return redirect('/setoran_bank')->with('danger', 'Data Berhasil Dihapus');
     }
+
+    
 }

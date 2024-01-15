@@ -96,6 +96,8 @@ route::get('/user_edit/{id}', [UserController::class, 'edit_user']);
 route::put('/user/{id}', [UserController::class, 'update']);
 route::delete('/user_destroy/{id}', [UserController::class, 'destroy']);
 
+Route::get('/jumlah-setoran', [SetoranController::class, 'jumlahSetoranPadaTanggal']);
+
 // Route::get('/', function () {
 //     return view('home', [
 //         'name' => 'adinda',

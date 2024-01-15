@@ -73,8 +73,77 @@
                             </div>
                         </div>
                         @endif
+                        {{-- <h5>JUMLAH SETORAN</h5>
+                        <p>Tanggal: </p>
+                        <select class="form-control" name="selectedDate" id="selectedDate" onchange="updateJumlahSetoran()">
+                            <option value="">-Pilih-</option>
+                            @foreach ($penjualan as $tanggal_penjualan)
+                                <option value="{{ $tanggal_penjualan->tanggal_penjualan }}">{{ $tanggal_penjualan->tanggal_penjualan }}</option>
+                            @endforeach
+                        </select>
+                        <p id="jumlahSetoran"></p>
 
-                       
+                        <script>
+                            function updateJumlahSetoran() {
+                                var selectedDate = document.getElementById('selectedDate').value;
+                    
+                                // Lakukan sesuatu dengan selectedDate (misalnya, cari jumlah setoran langsung di sisi klien)
+                                // Gantilah logika ini dengan sesuatu yang sesuai dengan kebutuhan Anda
+                                var jumlahSetoran = "Logika Penghitungan Jumlah Setoran di Sisi Klien";
+                    
+                                // Menampilkan jumlah setoran
+                                document.getElementById('jumlahSetoran').innerText = 'Jumlah Setoran: ' + jumlahSetoran;
+                            }
+                        </script> --}}
+
+                        <h5>JUMLAH SETORAN</h5>
+                        <p>Tanggal: 
+                        <select name="selectedDate" id="selectedDate" onchange="updateJumlahSetoran()">
+                            <option value="">-Pilih-</option>
+                            @php
+                                $uniqueDates = [];
+                            @endphp
+                            @foreach ($penjualan as $tanggal_penjualan)
+                                @if (!in_array($tanggal_penjualan->tanggal_penjualan, $uniqueDates))
+                                    <option value="{{ $tanggal_penjualan->tanggal_penjualan }}">{{ date('d-M-Y', strtotime ($tanggal_penjualan->tanggal_penjualan ))}}</option>
+                                    @php
+                                        $uniqueDates[] = $tanggal_penjualan->tanggal_penjualan;
+                                    @endphp
+                                @endif
+                            @endforeach
+                        </select></p>
+                        <p id="jumlahSetoran">Jumlah Setoran: <strong><span id="totalSetoran">Rp. 0</span></strong></p>
+
+
+                        <script>
+                            // Simulasi data penjualan, gantilah dengan data sebenarnya
+                            var penjualanData = {!! json_encode($penjualan) !!};
+                    
+                            function formatRupiah(angka) {
+                                var formatter = new Intl.NumberFormat('id-ID', {
+                                    style: 'currency',
+                                    currency: 'IDR'
+                                });
+                                return formatter.format(angka);
+                            }
+                    
+                            function updateJumlahSetoran() {
+                                var selectedDate = document.getElementById('selectedDate').value;
+                    
+                                // Inisialisasi jumlah setoran
+                                var jumlahSetoran = 0;
+                    
+                                // Iterasi data penjualan dan hitung jumlah setoran berdasarkan tanggal yang dipilih
+                                for (var i = 0; i < penjualanData.length; i++) {
+                                    if (penjualanData[i].tanggal_penjualan === selectedDate) {
+                                        jumlahSetoran += parseFloat(penjualanData[i].setoran_penjualan);
+                                    }
+                                }
+                    
+                                // Menampilkan jumlah setoran dengan format rupiah
+                                document.getElementById('totalSetoran').innerText = formatRupiah(jumlahSetoran);
+                            }
+                        </script>
 
                         {{-- @if(session::has('status'))
                         <div class="alert alert-success" role="alert">
@@ -132,7 +201,10 @@
                 </div>
             </div>
         </div>
+        
 </section>
+
+
 @endsection
 
 @foreach ($penjualan as $no => $item)
